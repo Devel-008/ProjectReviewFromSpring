@@ -596,7 +596,6 @@ public class StudentDaoImplement implements StudentDao {
                         student.getSocial(), student.getPercentage());
             }
 
-
             if (i > 0 && i1 > 0 && i2 > 0) {
                 logger.info("Inserted!!");
                 return true;
