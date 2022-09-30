@@ -15,14 +15,6 @@ public class Student {
     private float social;
     private float percentage;
 
-    public String getStudentLastName() {
-        return studentLastName;
-    }
-
-    public void setStudentLastName(String studentLastName) {
-        this.studentLastName = studentLastName;
-    }
-
     public int getStudentId() {
         return studentId;
     }
@@ -37,6 +29,13 @@ public class Student {
 
     public void setStudentName(String studentName) {
         this.studentName = studentName;
+    }
+    public String getStudentLastName() {
+        return studentLastName;
+    }
+
+    public void setStudentLastName(String studentLastName) {
+        this.studentLastName = studentLastName;
     }
 
     public String getFatherName() {
@@ -135,7 +134,7 @@ public class Student {
                 ", science=" + science +
                 ", social=" + social +
                 ", percentage=" + percentage +
-                '}';
+                '}'+"\n";
     }
 
     public Student(int studentId, String studentName, String studentLastName, String fatherName, String motherName, String address, String dob, float english, float hindi, float maths, float science, float social, float percentage) {

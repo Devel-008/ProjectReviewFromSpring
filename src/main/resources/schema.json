@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "title":"Student",
+  "description": "Details about student and his personal details and marks details",
+  "type": "array",
+  "students": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "description": "The unique identifier for a product",
+        "type": "integer",
+        "Required" : "Yes"
+      },
+      "studentName": {
+        "description": "Enter the the StudentName",
+        "type": "string",
+        "Required" : "Yes"
+      },
+      "lastName": {
+        "description": "Enter LastName",
+        "type": "string",
+        "Required" : "Yes"
+      },
+      "fatherName": {
+        "description": "Enter the Father-Name",
+        "type": "string",
+        "Required" : "Yes"
+      },
+      "motherName": {
+        "description": "Enter the Mother-Name",
+        "type": "string",
+        "Required" : "Yes"
+      },
+      "address": {
+        "description": "Enter the Address",
+        "type": "string",
+        "Required" : "Yes"
+      },
+      "dob": {
+        "type":"string",
+        "format": "date",
+        "description": "Enter the Date of Birth in format of YYYY-MM-DD",
+        "Required" : "Yes"
+      },
+      "english": {
+        "description": "Enter the English marks",
+        "type": "number",
+        "Required" : "Yes"
+      },
+      "hindi": {
+        "description": "Enter the Hindi marks",
+        "type": "number",
+        "Required" : "Yes"
+      },
+      "maths": {
+        "description": "Enter the Maths marks",
+        "type": "number",
+        "Required" : "Yes"
+      },
+      "science": {
+        "description": "Enter the Science marks",
+        "type": "number",
+        "Required" : "Yes"
+      },
+      "social": {
+        "description": "Enter the Social marks",
+        "type": "number",
+        "Required" : "Yes"
+      }
+    }
+  }
+}
