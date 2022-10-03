@@ -8,65 +8,54 @@
     "properties": {
       "id": {
         "description": "The unique identifier for a product",
-        "type": "integer",
-        "Required" : "Yes"
+        "type": "integer"
       },
       "studentName": {
         "description": "Enter the the StudentName",
-        "type": "string",
-        "Required" : "Yes"
+        "type": "string"
       },
       "lastName": {
         "description": "Enter LastName",
-        "type": "string",
-        "Required" : "Yes"
+        "type": "string"
       },
       "fatherName": {
         "description": "Enter the Father-Name",
-        "type": "string",
-        "Required" : "Yes"
+        "type": "string"
       },
       "motherName": {
         "description": "Enter the Mother-Name",
-        "type": "string",
-        "Required" : "Yes"
+        "type": "string"
       },
       "address": {
         "description": "Enter the Address",
-        "type": "string",
-        "Required" : "Yes"
+        "type": "string"
       },
       "dob": {
         "type":"string",
         "format": "date",
-        "description": "Enter the Date of Birth in format of YYYY-MM-DD",
-        "Required" : "Yes"
+        "description": "Enter the Date of Birth in format of YYYY-MM-DD"
       },
       "english": {
         "description": "Enter the English marks",
-        "type": "number",
-        "Required" : "Yes"
+        "type": "number"
       },
       "hindi": {
         "description": "Enter the Hindi marks",
-        "type": "number",
-        "Required" : "Yes"
+        "type": "number"
       },
       "maths": {
         "description": "Enter the Maths marks",
-        "type": "number",
-        "Required" : "Yes"
+        "type": "number"
       },
       "science": {
         "description": "Enter the Science marks",
-        "type": "number",
-        "Required" : "Yes"
+        "type": "number"
       },
       "social": {
         "description": "Enter the Social marks",
-        "type": "number",
-        "Required" : "Yes"
-      }
+        "type": "number"
+      },
+      "required" : ["id","studentName","lastName","fatherName","motherName","address","dob","english","hindi","maths","science","social"]
     }
   }
 }
