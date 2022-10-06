@@ -31,9 +31,11 @@ public class StudentDaoImplement implements StudentDao {
     @Override
     public void setInsertRecords(Student student, Scanner sc, Logger logger) {
         try {
+            logger.info("Logger in SetInsertRecords");
             //input student-id
             System.out.print("Enter Student-Id:=");
             student.setStudentId(sc.nextInt());
+            logger.info("For ID {}",student.getStudentId());
             //input-studentName
             System.out.print("Enter Student-Name:= (Example: Pratibha)");
             student.setStudentName(sc.next());
@@ -106,7 +108,10 @@ public class StudentDaoImplement implements StudentDao {
         } catch (InputMismatchException | NullPointerException e) {
             logger.error("Error at insert := ", e);
         }
-        insertRecords(student, logger);
+       // insertRecords(student, logger);
+        if(insertRecords(student,logger)){
+            System.out.println("Inserted data for ID: "+student.getStudentId());
+        }
     }
 
     @Override
@@ -125,18 +130,25 @@ public class StudentDaoImplement implements StudentDao {
                 student.getSocial(), student.getPercentage());
 
         if (i > 0 && i1 > 0 && i2 > 0) {
+            logger.info("Inserted ID {} Data",student.getStudentId());
             return true;
         } else {
             System.out.print("Not Inserted!!");
+            logger.warn("ID {} Data not-Inserted",student.getStudentId());
             return false;
         }
     }
 
     @Override
     public void setDeleteRecords(Student student, Scanner sc, Logger logger) {
+        logger.info("Logger in SetDelete");
         System.out.print("Enter the ID of student whose data you want too delete :-");
         student.setStudentId(sc.nextInt());
-        deleteRecords(student, logger);
+        logger.info("Data Deleted for {} ",student.getStudentId());
+        //deleteRecords(student, logger);
+        if(deleteRecords(student,logger)){
+            System.out.println("Deleted!!!");
+        }
     }
 
     @Override
@@ -148,9 +160,11 @@ public class StudentDaoImplement implements StudentDao {
         int i1 = this.jdbcTemplate.update(deleteStudentDetails, student.getStudentId());
         int i2 = this.jdbcTemplate.update(deleteStudentMarks, student.getStudentId());
         if (i > 0 && i1 > 0 && i2 > 0) {
+            logger.info("ID {} Data deleted",student.getStudentId());
             return true;
         } else {
             System.out.print("not deleted!!");
+            logger.warn("ID {} Data not-deleted",student.getStudentId());
             return false;
         }
     }
@@ -181,6 +195,7 @@ public class StudentDaoImplement implements StudentDao {
                 i = sc.nextInt();
                 System.out.print("Enter the ID of student whose data you want Update :=");
                 student.setStudentId(sc.nextInt());
+                logger.info("Update in ID {}",student.getStudentId());
                 //For Name
                 switch (i) {
                     case 1 -> {
@@ -188,7 +203,8 @@ public class StudentDaoImplement implements StudentDao {
                             System.out.print("Update Name:=");
                             student.setStudentName(sc.next());
                             if (!student.getStudentName().matches("[A-Za-z]*")) {
-                                System.out.print("Incorrect format");
+                                System.out.print("Incorrect format  ");
+                                logger.info("Incorrect format for UpdateName for ID {}",student.getStudentId());
                             }
                             updateName(student, logger);
                         } catch (InputMismatchException | NullPointerException e) {

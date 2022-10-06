@@ -4,13 +4,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 import java.util.Scanner;
 
 public class MainCrud {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Logger logger = LoggerFactory.getLogger(MainCrud.class);
+        final Logger logger = LoggerFactory.getLogger(MainCrud.class);
         logger.info("Logger Initialized!!");
         ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
         StudentDao studentDao = context.getBean("studentDao",StudentDao.class);
@@ -28,10 +27,11 @@ public class MainCrud {
                 case 6 -> studentDao.updatePercentage(student,logger);
 
                 default -> {
-                    logger.warn("\nDo you want to continue:= Press any key or else Press 0 to exit!!");
+                    System.out.print("\nDo you want to continue:= Press any key or else Press 0 to exit!!");
                     int n = sc.nextInt();
                     if (n == 0) {
-                        logger.info("Process Successful");
+                        System.out.println("Process Successful!!");
+                        logger.info("Process Successful for ID{}",student.getStudentId());
                         return;
                     }
                 }
