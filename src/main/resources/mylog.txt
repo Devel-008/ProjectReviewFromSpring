@@ -1,0 +1,39 @@
+Logger Initialized!!
+Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@396e2f39
+Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+Creating shared instance of singleton bean 'ds'
+Loaded JDBC driver: org.h2.Driver
+Creating shared instance of singleton bean 'jdbcTemplate'
+Creating shared instance of singleton bean 'studentDao'
+Logger in SetInsertRecords
+Error at insert := 
+java.util.InputMismatchException: null
+	at java.base/java.util.Scanner.throwFor(Scanner.java:943)
+	at java.base/java.util.Scanner.next(Scanner.java:1598)
+	at java.base/java.util.Scanner.nextInt(Scanner.java:2263)
+	at java.base/java.util.Scanner.nextInt(Scanner.java:2217)
+	at com.review.StudentDaoImplement.setInsertRecords(StudentDaoImplement.java:37)
+	at com.review.MainCrud.main(MainCrud.java:22)
+Executing prepared SQL update
+Executing prepared SQL statement [insert into student (id, studentName,lastName) values(?, ?, ?)]
+Fetching JDBC Connection from DataSource
+Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+Loaded 11 bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+Creating shared instance of singleton bean 'DB2'
+Creating shared instance of singleton bean 'Derby'
+Creating shared instance of singleton bean 'H2'
+Creating shared instance of singleton bean 'HDB'
+Creating shared instance of singleton bean 'HSQL'
+Creating shared instance of singleton bean 'Informix'
+Creating shared instance of singleton bean 'MS-SQL'
+Creating shared instance of singleton bean 'MySQL'
+Creating shared instance of singleton bean 'Oracle'
+Creating shared instance of singleton bean 'PostgreSQL'
+Creating shared instance of singleton bean 'Sybase'
+Looking up default SQLErrorCodes for DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@52815fa3]
+Fetching JDBC Connection from DataSource
+Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+SQL error codes for 'H2' found
+Caching SQL error codes for DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@52815fa3]: database product name is 'H2'
+Translating SQLException with SQL state '23502', error code '23502', message [NULL not allowed for column "STUDENTNAME"; SQL statement:
+insert into student (id, studentName,lastName) values(?, ?, ?) [23502-214]]; SQL was [insert into student (id, studentName,lastName) values(?, ?, ?)] for task [PreparedStatementCallback]
