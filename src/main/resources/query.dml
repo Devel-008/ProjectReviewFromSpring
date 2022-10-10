@@ -1,5 +1,11 @@
-insert into student (id, studentName,lastName) values(1, "Mohan", "Rai");
+insert into student
+(id, studentName,lastName)
+values(1, 'Mohan', 'Rai');
 
-insert into studentMarks(studentId, english, hindi, maths, science, social, percentage) values(1, 99, 99, 99, 99, 99, 99);
+insert into studentMarks
+(studentId, english, hindi, maths, science, social, percentage)
+values(1, 99, 99, 99, 99, 99, 99);
 
- insert into studentPersonalDetails(studentId, fatherName, motherName, address,dob) values(1, "Ghanshyam", "Sumati", "Jaipur", "2008-10-10");
+insert into studentPersonalDetails
+(studentId, fatherName, motherName, address,dob)
+values(1, 'Ghanshyam', 'Sumati', 'Jaipur', '2008-10-10');
