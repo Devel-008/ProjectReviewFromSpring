@@ -7,6 +7,8 @@ import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -16,7 +18,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class StudentDaoImplement implements StudentDao {
-
     private JdbcTemplate jdbcTemplate;
     String query;
 
@@ -35,83 +36,92 @@ public class StudentDaoImplement implements StudentDao {
             //input student-id
             System.out.print("Enter Student-Id:=");
             student.setStudentId(sc.nextInt());
-            logger.info("For ID {}",student.getStudentId());
-            //input-studentName
-            System.out.print("Enter Student-Name:= (Example: Pratibha)");
-            student.setStudentName(sc.next());
-            if (!student.getStudentName().matches("[A-Za-z]*")) {
-                System.out.print("Incorrect format");
+            query = "select * from student where id = ?";
+            RowMapper<Student> rowMapper = new IdCheck();
+            Student student1 = this.jdbcTemplate.queryForObject(query,rowMapper,student.getStudentId());
+
+            if(student.getStudentId() != student1.getStudentId()) {
+                logger.info("For ID {}", student.getStudentId());
+                //input-studentName
+                System.out.print("Enter Student-Name:= (Example: Pratibha)");
+                student.setStudentName(sc.next());
+                if (!student.getStudentName().matches("[A-Za-z]*")) {
+                    System.out.print("Incorrect format");
+                }
+                //input student LastName
+                System.out.print("Enter Student-Last Name:- (Example: Soni");
+                student.setStudentLastName(sc.next());
+                if (!student.getStudentLastName().matches("[A-Za-z]*")) {
+                    System.out.print("Incorrect format");
+                }
+                //input student-FatherName
+                System.out.print("Enter Student's Father-Name:= (Example: Kishan)");
+                student.setFatherName(sc.next());
+                if (!student.getFatherName().matches("[A-Za-z]*")) {
+                    System.out.print("Incorrect format");
+                }
+                //input student motherName
+                System.out.print("Enter Student's Mother-Name:= (Example: Sharmila)");
+                student.setMotherName(sc.next());
+                if (!student.getMotherName().matches("[A-Za-z]*")) {
+                    System.out.print("Incorrect format");
+                }
+                //input student Address
+                System.out.print("Enter Student's Address:= (Example: Bikaner)");
+                student.setAddress(sc.next());
+                if (!student.getAddress().matches("[A-Za-z][A-Za-z0-9]*")) {
+                    System.out.print("Incorrect format");
+                }
+                //input student date of birth
+                System.out.print("Enter Student's DOB yyyy-mm-dd:= (Example: 2000-10-10 )");
+                student.setDob(sc.next());
+                if (!student.getDob().matches("[1-2][0-9][0-9][0-9][-][0-1][0-9][-][0-3][0-9]")) {
+                    System.out.print("Date has incorrect format");
+                }
+                //input english marks
+                System.out.print("Enter English-Marks out of 100:=");
+                student.setEnglish(sc.nextFloat());
+                if (student.getEnglish() > 100) {
+                    System.out.print("Marks entered must be more than 100");
+                }
+                //input hindi marks
+                System.out.print("Enter Hindi-Marks out of 100:=");
+                student.setHindi(sc.nextFloat());
+                if (student.getHindi() > 100) {
+                    System.out.print("Marks entered must be more than 100");
+                }
+                //input maths marks
+                System.out.print("Enter Maths-Marks out of 100:=");
+                student.setMaths(sc.nextFloat());
+                if (student.getMaths() > 100) {
+                    System.out.print("Marks entered must be more than 100");
+                }
+                //input science marks
+                System.out.print("Enter Science-Marks out of 100:=");
+                student.setScience(sc.nextFloat());
+                if (student.getScience() > 100) {
+                    System.out.print("Marks entered must be more than 100");
+                }
+                //input social marks
+                System.out.print("Enter Social-Marks out of 100:=");
+                student.setSocial(sc.nextFloat());
+                if (student.getSocial() > 100) {
+                    System.out.print("Marks entered must be more than 100");
+                }
+                //percentage
+                float total = student.getEnglish() + student.getHindi() + student.getMaths() + student.getScience() + student.getSocial();
+                student.setPercentage((total * 100) / 500);
+                if(insertRecords(student,logger)){
+                    System.out.println("Inserted data for ID: "+student.getStudentId());
+                }
+            }else {
+                System.out.println("Already Exist");
+                throw new IllegalArgumentException("Data Already Exist for ID " + student.getStudentId());
             }
-            //input student LastName
-            System.out.print("Enter Student-Last Name:- (Example: Soni");
-            student.setStudentLastName(sc.next());
-            if (!student.getStudentLastName().matches("[A-Za-z]*")) {
-                System.out.print("Incorrect format");
-            }
-            //input student-FatherName
-            System.out.print("Enter Student's Father-Name:= (Example: Kishan)");
-            student.setFatherName(sc.next());
-            if (!student.getFatherName().matches("[A-Za-z]*")) {
-                System.out.print("Incorrect format");
-            }
-            //input student motherName
-            System.out.print("Enter Student's Mother-Name:= (Example: Sharmila)");
-            student.setMotherName(sc.next());
-            if (!student.getMotherName().matches("[A-Za-z]*")) {
-                System.out.print("Incorrect format");
-            }
-            //input student Address
-            System.out.print("Enter Student's Address:= (Example: Bikaner)");
-            student.setAddress(sc.next());
-            if (!student.getAddress().matches("[A-Za-z][A-Za-z0-9]*")) {
-                System.out.print("Incorrect format");
-            }
-            //input student date of birth
-            System.out.print("Enter Student's DOB yyyy-mm-dd:= (Example: 2000-10-10 )");
-            student.setDob(sc.next());
-            if (!student.getDob().matches("[1-2][0-9][0-9][0-9][-][0-1][0-9][-][0-3][0-9]")) {
-                System.out.print("Date has incorrect format");
-            }
-            //input english marks
-            System.out.print("Enter English-Marks out of 100:=");
-            student.setEnglish(sc.nextFloat());
-            if (student.getEnglish() > 100) {
-                System.out.print("Marks entered must be more than 100");
-            }
-            //input hindi marks
-            System.out.print("Enter Hindi-Marks out of 100:=");
-            student.setHindi(sc.nextFloat());
-            if (student.getHindi() > 100) {
-                System.out.print("Marks entered must be more than 100");
-            }
-            //input maths marks
-            System.out.print("Enter Maths-Marks out of 100:=");
-            student.setMaths(sc.nextFloat());
-            if (student.getMaths() > 100) {
-                System.out.print("Marks entered must be more than 100");
-            }
-            //input science marks
-            System.out.print("Enter Science-Marks out of 100:=");
-            student.setScience(sc.nextFloat());
-            if (student.getScience() > 100) {
-                System.out.print("Marks entered must be more than 100");
-            }
-            //input social marks
-            System.out.print("Enter Social-Marks out of 100:=");
-            student.setSocial(sc.nextFloat());
-            if (student.getSocial() > 100) {
-                System.out.print("Marks entered must be more than 100");
-            }
-            //percentage
-            float total = student.getEnglish() + student.getHindi() + student.getMaths() + student.getScience() + student.getSocial();
-            student.setPercentage((total * 100) / 500);
-        } catch (InputMismatchException | NullPointerException e) {
+        } catch (InputMismatchException | NullPointerException  | IllegalArgumentException e) {
             logger.error("Error at insert := ", e);
         }
        // insertRecords(student, logger);
-        if(insertRecords(student,logger)){
-            System.out.println("Inserted data for ID: "+student.getStudentId());
-        }
     }
 
     @Override
@@ -188,177 +198,194 @@ public class StudentDaoImplement implements StudentDao {
         logger.info("Logger init to Set Update Records!!");
         try {
             int i;
-            System.out.print("Press 1 to Update Name || Press 2 to Personal details || Press 3 to Update Marks :=");
-            int choice = sc.nextInt();
-            if (choice == 1) {
-                System.out.print("Press 1 to update StudentName || Press 2 to update LastName ");
-                i = sc.nextInt();
-                System.out.print("Enter the ID of student whose data you want Update :=");
-                student.setStudentId(sc.nextInt());
-                logger.info("Update in ID {}",student.getStudentId());
-                //For Name
-                switch (i) {
-                    case 1 -> {
-                        try {
-                            System.out.print("Update Name:=");
-                            student.setStudentName(sc.next());
-                            if (!student.getStudentName().matches("[A-Za-z]*")) {
-                                System.out.print("Incorrect format  ");
-                                logger.info("Incorrect format for UpdateName for ID {}",student.getStudentId());
+            System.out.print("Enter the ID of student whose data you want Update :=");
+            student.setStudentId(sc.nextInt());
+            logger.info("Update in ID {}",student.getStudentId());
+
+            query = "select * from student where id = ?";
+            RowMapper<Student> rowMapper = new IdCheck();
+            Student student1 = this.jdbcTemplate.queryForObject(query,rowMapper,student.getStudentId());
+
+            if(student.getStudentId() == student1.getStudentId()) {
+
+                System.out.print("Press 1 to Update Name || Press 2 to Personal details || Press 3 to Update Marks :=");
+                int choice = sc.nextInt();
+                if (choice == 1) {
+                    System.out.print("Press 1 to update StudentName || Press 2 to update LastName ");
+                    i = sc.nextInt();
+                    //For Name
+                    switch (i) {
+                        case 1 -> {
+                            try {
+                                System.out.print("Update Name:=");
+                                student.setStudentName(sc.next());
+                                if (!student.getStudentName().matches("[A-Za-z]*")) {
+                                    System.out.print("Incorrect format  ");
+                                    logger.warn("Incorrect format for UpdateName for ID {}", student.getStudentId());
+                                }
+                                updateName(student, logger);
+                            } catch (InputMismatchException | NullPointerException e) {
+                                logger.error("Error on line 211 of SetUpdate :- ", e);
                             }
-                            updateName(student, logger);
-                        } catch (InputMismatchException | NullPointerException e) {
-                            logger.error("Error on line 195 of SetUpdate :- ", e);
                         }
-                    }
-                    case 2 -> {
-                        try {
-                            System.out.print("Update Last-Name:=");
-                            student.setStudentLastName(sc.next());
-                            if (!student.getStudentLastName().matches("[A-Za-z]*")) {
-                                System.out.print("Incorrect format");
+                        case 2 -> {
+                            try {
+                                System.out.print("Update Last-Name:=");
+                                student.setStudentLastName(sc.next());
+                                if (!student.getStudentLastName().matches("[A-Za-z]*")) {
+                                    System.out.print("Incorrect format");
+                                    logger.warn("Incorrect format for UpdateLastName for ID {}", student.getStudentId());
+                                }
+                                updateLName(student, logger);
+                            } catch (InputMismatchException | NullPointerException e) {
+                                logger.error("Error on line 224 of SetUpdate:- ", e);
                             }
-                            updateLName(student, logger);
-                        } catch (InputMismatchException | NullPointerException e) {
-                            logger.error("Error on line 207 of SetUpdate:- ", e);
                         }
+                        default -> System.out.print("Wrong Choice");
                     }
-                    default -> System.out.print("Wrong Choice");
+                } else if (choice == 2) {
+                    System.out.print("Press 1 to update FatherName || Press 2 to update MotherName || Press 3 to update Address || Press 4 to update DOB ");
+                    i = sc.nextInt();
+                    switch (i) {
+                        case 1 -> {
+                            try {
+                                System.out.print("Update FatherName:=");
+                                student.setFatherName(sc.next());
+                                if (!student.getFatherName().matches("[A-Za-z]*")) {
+                                    System.out.print("Incorrect format");
+                                    logger.warn("Incorrect format for UpdateFatherName for ID {}", student.getStudentId());
+                                }
+                                updateFName(student, logger);
+                            } catch (InputMismatchException | NullPointerException e) {
+                                logger.error("Error on line 245 in SetUpdate :- ", e);
+                            }
+                        }
+                        case 2 -> {
+                            try {
+                                System.out.print("Update Mother-Name:=");
+                                student.setMotherName(sc.next());
+                                if (!student.getMotherName().matches("[A-Za-z]*")) {
+                                    System.out.print("Incorrect format");
+                                    logger.warn("Incorrect format for UpdateMotherName for ID {}", student.getStudentId());
+                                }
+                                updateMName(student, logger);
+                            } catch (InputMismatchException | NullPointerException e) {
+                                logger.error("Error on line 258 in SetUpdate:- ", e);
+                            }
+                        }
+                        case 3 -> {
+                            try {
+                                System.out.print("Update Address:=");
+                                student.setAddress(sc.next());
+                                if (!student.getAddress().matches("[A-Za-z][A-Za-z0-9]*")) {
+                                    System.out.print("Incorrect format");
+                                    logger.warn("Incorrect format for UpdateAddress for ID {}", student.getStudentId());
+                                }
+                                updateAddress(student, logger);
+                            } catch (InputMismatchException | NullPointerException e) {
+                                logger.error("Error on line 271 in SetUpdate:- ", e);
+                            }
+                        }
+                        case 4 -> {
+                            try {
+                                System.out.print("Update DOB:=");
+                                student.setDob(sc.next());
+                                if (!student.getDob().matches("[1-2][0-9][0-9][0-9][-][0-1][0-9][-][0-3][0-9]")) {
+                                    System.out.print("Incorrect format");
+                                    logger.warn("Incorrect format for UpdateDOB for ID {}", student.getStudentId());
+                                }
+                                updateDob(student, logger);
+                            } catch (InputMismatchException | NullPointerException e) {
+                                logger.error("Error on line 284 in SetUpdate:- ", e);
+                            }
+                        }
+                        default -> System.out.print("Wrong Choice");
+                    }
+                } else if (choice == 3) {
+                    System.out.print("Press 1 to update English || Press 2 to update Hindi || Press 3 to update Maths || Press 4 to update Science || Press 5 to update Social:= ");
+                    i = sc.nextInt();
+                    switch (i) {
+                        case 1 -> {
+                            try {
+                                System.out.print("Update English Marks:=");
+                                student.setEnglish(sc.nextFloat());
+                                if (student.getEnglish() > 100) {
+                                    System.out.print("Marks entered must be more than 100");
+                                    logger.warn("Incorrect format for UpdateEnglishMarks for ID {}", student.getStudentId());
+                                }
+                                updateEnglish(student, logger);
+                                updatePercentage(student, logger);
+                            } catch (InputMismatchException | NullPointerException e) {
+                                logger.error("Error on line 306 in update:- ", e);
+                            }
+                        }
+                        case 2 -> {
+                            try {
+                                System.out.print("Update Hindi Marks:=");
+                                student.setHindi(sc.nextFloat());
+                                if (student.getHindi() > 100) {
+                                    System.out.print("Marks entered must be more than 100");
+                                    logger.warn("Incorrect format for UpdateHindiMarks for ID {}", student.getStudentId());
+                                }
+                                updateHindi(student, logger);
+                                updatePercentage(student, logger);
+                            } catch (InputMismatchException | NullPointerException e) {
+                                logger.error("Error on line 320 in SetUpdate:- ", e);
+                            }
+                        }
+                        case 3 -> {
+                            try {
+                                System.out.print("Update Maths Marks:=");
+                                student.setMaths(sc.nextFloat());
+                                if (student.getMaths() > 100) {
+                                    System.out.print("Marks entered must be more than 100");
+                                    logger.warn("Incorrect format for UpdateMathsMarks for ID {}", student.getStudentId());
+                                }
+                                updateMaths(student, logger);
+                                updatePercentage(student, logger);
+                            } catch (InputMismatchException | NullPointerException e) {
+                                logger.error("Error on line 334 in SetUpdate:- ", e);
+                            }
+                        }
+                        case 4 -> {
+                            try {
+                                System.out.print("Update Science Marks:=");
+                                student.setScience(sc.nextFloat());
+                                if (student.getScience() > 100) {
+                                    System.out.print("Marks entered must be more than 100");
+                                    logger.warn("Incorrect format for UpdateScienceMarks for ID {}", student.getStudentId());
+                                }
+                                updateScience(student, logger);
+                                updatePercentage(student, logger);
+                            } catch (InputMismatchException | NullPointerException e) {
+                                logger.error("Error on line 348 in SetUpdate:- ", e);
+                            }
+                        }
+                        case 5 -> {
+                            try {
+                                System.out.print("Update Social Marks:=");
+                                student.setSocial(sc.nextFloat());
+                                if (student.getSocial() > 100) {
+                                    System.out.print("Marks entered must be more than 100");
+                                    logger.warn("Incorrect format for UpdateSocialMarks for ID {}", student.getStudentId());
+                                }
+                                updateSocial(student, logger);
+                                updatePercentage(student, logger);
+                            } catch (InputMismatchException | NullPointerException e) {
+                                logger.error("Error on line 362 in update:- ", e);
+                            }
+                        }
+                        default -> System.out.print("Wrong Choice");
+                    }
+                } else {
+                    System.out.print("Wrong Choice!!");
                 }
-            } else if (choice == 2) {
-                System.out.print("Press 1 to update FatherName || Press 2 to update MotherName || Press 3 to update Address || Press 4 to update DOB ");
-                i = sc.nextInt();
-                System.out.print("Enter the ID of student whose data you want Update :=");
-                student.setStudentId(sc.nextInt());
-                switch (i) {
-                    case 1 -> {
-                        try {
-                            System.out.print("Update FatherName:=");
-                            student.setFatherName(sc.next());
-                            if (!student.getFatherName().matches("[A-Za-z]*")) {
-                                System.out.print("Incorrect format");
-                            }
-                            updateFName(student, logger);
-                        } catch (InputMismatchException | NullPointerException e) {
-                            logger.error("Error on line 227 in SetUpdate :- ", e);
-                        }
-                    }
-                    case 2 -> {
-                        try {
-                            System.out.print("Update Mother-Name:=");
-                            student.setMotherName(sc.next());
-                            if (!student.getMotherName().matches("[A-Za-z]*")) {
-                                System.out.print("Incorrect format");
-                            }
-                            updateMName(student, logger);
-                        } catch (InputMismatchException | NullPointerException e) {
-                            logger.error("Error on line 239 in SetUpdate:- ", e);
-                        }
-                    }
-                    case 3 -> {
-                        try {
-                            System.out.print("Update Address:=");
-                            student.setAddress(sc.next());
-                            if (!student.getAddress().matches("[A-Za-z][A-Za-z0-9]*")) {
-                                System.out.print("Incorrect format");
-                            }
-                            updateAddress(student, logger);
-                        } catch (InputMismatchException | NullPointerException e) {
-                            logger.error("Error on line 251 in SetUpdate:- ", e);
-                        }
-                    }
-                    case 4 -> {
-                        try {
-                            System.out.print("Update DOB:=");
-                            student.setDob(sc.next());
-                            if (!student.getDob().matches("[1-2][0-9][0-9][0-9][-][0-1][0-9][-][0-3][0-9]")) {
-                                System.out.print("Incorrect format");
-                            }
-                            updateDob(student, logger);
-                        } catch (InputMismatchException | NullPointerException e) {
-                            logger.error("Error on line 263 in SetUpdate:- ", e);
-                        }
-                    }
-                    default -> System.out.print("Wrong Choice");
-                }
-            } else if (choice == 3) {
-                System.out.print("Press 1 to update English || Press 2 to update Hindi || Press 3 to update Maths || Press 4 to update Science || Press 5 to update Social:= ");
-                i = sc.nextInt();
-                System.out.print("Enter the ID of student whose data you want Update :=");
-                student.setStudentId(sc.nextInt());
-                switch (i) {
-                    case 1 -> {
-                        try {
-                            System.out.print("Update English Marks:=");
-                            student.setEnglish(sc.nextFloat());
-                            if (student.getEnglish() > 100) {
-                                System.out.print("Marks entered must be more than 100");
-                            }
-                            updateEnglish(student, logger);
-                            updatePercentage(student, logger);
-                        } catch (InputMismatchException | NullPointerException e) {
-                            logger.error("Error on line 211 in update:- ", e);
-                        }
-                    }
-                    case 2 -> {
-                        try {
-                            System.out.print("Update Hindi Marks:=");
-                            student.setHindi(sc.nextFloat());
-                            if (student.getHindi() > 100) {
-                                System.out.print("Marks entered must be more than 100");
-                            }
-                            updateHindi(student, logger);
-                            updatePercentage(student, logger);
-                        } catch (InputMismatchException | NullPointerException e) {
-                            logger.error("Error on line 297 in SetUpdate:- ", e);
-                        }
-                    }
-                    case 3 -> {
-                        try {
-                            System.out.print("Update Maths Marks:=");
-                            student.setMaths(sc.nextFloat());
-                            if (student.getMaths() > 100) {
-                                System.out.print("Marks entered must be more than 100");
-                            }
-                            updateMaths(student, logger);
-                            updatePercentage(student, logger);
-                        } catch (InputMismatchException | NullPointerException e) {
-                            logger.error("Error on line 310 in SetUpdate:- ", e);
-                        }
-                    }
-                    case 4 -> {
-                        try {
-                            System.out.print("Update Science Marks:=");
-                            student.setScience(sc.nextFloat());
-                            if (student.getScience() > 100) {
-                                System.out.print("Marks entered must be more than 100");
-                            }
-                            updateScience(student, logger);
-                            updatePercentage(student, logger);
-                        } catch (InputMismatchException | NullPointerException e) {
-                            logger.error("Error on line 323 in SetUpdate:- ", e);
-                        }
-                    }
-                    case 5 -> {
-                        try {
-                            System.out.print("Update Social Marks:=");
-                            student.setSocial(sc.nextFloat());
-                            if (student.getSocial() > 100) {
-                                System.out.print("Marks entered must be more than 100");
-                            }
-                            updateSocial(student, logger);
-                            updatePercentage(student, logger);
-                        } catch (InputMismatchException | NullPointerException e) {
-                            logger.error("Error on line 326 in update:- ", e);
-                        }
-                    }
-                    default -> System.out.print("Wrong Choice");
-                }
-            } else {
-                System.out.print("Wrong Choice!!");
+            }else {
+                System.out.println("Already Exist");
+                throw new IllegalArgumentException("Data Already Exist for ID " + student.getStudentId());
             }
         } catch (InputMismatchException | NullPointerException e) {
-            logger.error("Error at selectRecord line 345", e);
+            logger.error("Error at selectRecord line 371", e);
         }
     }
 
@@ -369,6 +396,7 @@ public class StudentDaoImplement implements StudentDao {
         if (i > 0) {
             return true;
         } else {
+            System.out.print("Not Updated Name");
             logger.warn("Not Updated Name");
             return false;
         }
@@ -381,6 +409,7 @@ public class StudentDaoImplement implements StudentDao {
         if (i > 0) {
             return true;
         } else {
+            System.out.print("Not Updated LastName");
             logger.warn("Not Updated LastName");
             return false;
         }
@@ -393,7 +422,8 @@ public class StudentDaoImplement implements StudentDao {
         if (i > 0) {
             return true;
         } else {
-            logger.warn("Not Updated Father Name");
+            System.out.print("Not Updated FatherName");
+            logger.warn("Not Updated FatherName");
             return false;
         }
     }
@@ -405,6 +435,7 @@ public class StudentDaoImplement implements StudentDao {
         if (i > 0) {
             return true;
         } else {
+            System.out.print("Not Updated MotherName");
             logger.warn("Not Updated MotherName");
             return false;
         }
@@ -417,11 +448,13 @@ public class StudentDaoImplement implements StudentDao {
         if (i > 0) {
             return true;
         } else {
+            System.out.print("Not Updated Address");
             logger.warn("Not Updated Address");
             return false;
         }
     }
 
+    @Transactional(isolation = Isolation.READ_COMMITTED)
     @Override
     public boolean updateDob(Student student, Logger logger) {
         query = "update studentPersonalDetails set dob = ? where studentId = ?";
@@ -429,6 +462,7 @@ public class StudentDaoImplement implements StudentDao {
         if (i > 0) {
             return true;
         } else {
+            System.out.print("Not Updated DOB");
             logger.warn("Not Updated DOB");
             return false;
         }
@@ -441,6 +475,7 @@ public class StudentDaoImplement implements StudentDao {
         if (i > 0) {
             return true;
         } else {
+            System.out.print("Not Updated English");
             logger.warn("Not Updated English");
             return false;
         }
@@ -453,6 +488,7 @@ public class StudentDaoImplement implements StudentDao {
         if (i > 0) {
             return true;
         } else {
+            System.out.print("Not Updated Hindi");
             logger.warn("Not Updated Hindi");
             return false;
         }
@@ -465,6 +501,7 @@ public class StudentDaoImplement implements StudentDao {
         if (i > 0) {
             return true;
         } else {
+            System.out.print("Not Updated Maths");
             logger.warn("Not Updated Maths");
             return false;
         }
@@ -477,6 +514,7 @@ public class StudentDaoImplement implements StudentDao {
         if (i > 0) {
             return true;
         } else {
+            System.out.print("Not Updated Science");
             logger.warn("Not Updated Science");
             return false;
         }
@@ -489,6 +527,7 @@ public class StudentDaoImplement implements StudentDao {
         if (i > 0) {
             return true;
         } else {
+            System.out.print("Not Updated Social");
             logger.warn("Not Updated Social");
             return false;
         }
@@ -506,7 +545,8 @@ public class StudentDaoImplement implements StudentDao {
         if (i > 0) {
             return true;
         } else {
-            logger.warn("Not Updated Social");
+            System.out.print("Not Updated Percentage");
+            logger.warn("Not Updated Percentage");
             return false;
         }
     }
@@ -556,24 +596,28 @@ public class StudentDaoImplement implements StudentDao {
 
     @Override
     public void setSelectRecords(Student student, Scanner sc, Logger logger) {
+        logger.info("Logger init to setSelectRecords");
         System.out.print("Press 1 to see all data || Press 2 to see random data := ");
         int check = sc.nextInt();
         if (check == 1) {
             List<Student> list = getAllStudents();
             for (Student e : list)
-                System.out.print(e);
+                System.out.print(e+"\n");
         } else if (check == 2) {
             System.out.println("Enter id:-");
             student.setStudentId(sc.nextInt());
+            logger.info("Random Fetched data of ID {}",student.getStudentId());
             Student student1 = fetchRecords(student,logger);
-            System.out.println(student1);
+            logger.info("Fetched data := {}",student1);
+            System.out.print(student1);
         } else {
-            logger.warn("Wrong Choice");
+            System.out.print("Wrong Choice");
         }
     }
 
     @Override
     public boolean jsonInsert(Student student, Logger logger, Scanner sc) {
+        logger.info("Logger init to jsonInsert");
         query = "insert into student (id, studentName,lastName) values(?, ?, ?)";
         String query1 = "insert into studentPersonalDetails(studentId, fatherName, motherName, address, dob) " +
                 "values(?, ?, ?, ?, ?)";
@@ -592,12 +636,10 @@ public class StudentDaoImplement implements StudentDao {
                 logger.error("Error at JsonInsert while fileReader ", e);
             }
             JSONArray array = (JSONArray) jsonObject.get("students");
-
             int i = 0;
             int i1 = 0;
             int i2 = 0;
             for (Object object : array) {
-
                 JSONObject record = (JSONObject) object;
                 student.setStudentId(Integer.parseInt(record.get("id").toString()));
                 student.setStudentName((String) record.get("studentName"));
@@ -621,10 +663,12 @@ public class StudentDaoImplement implements StudentDao {
                         student.getMaths(), student.getScience(), student.getSocial(), student.getPercentage());
             }
             if (i > 0 && i1 > 0 && i2 > 0) {
-                logger.info("Inserted!!");
+                logger.info("JSON Inserted!!");
+                System.out.print("JSON Inserted!!");
                 return true;
             } else {
-                logger.warn("Not Inserted!!");
+                System.out.print("Not JSON Inserted!!");
+                logger.warn("Not JSON Inserted!!");
                 return false;
             }
         } catch (InputMismatchException e) {

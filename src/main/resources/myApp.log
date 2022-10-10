@@ -319,3 +319,1437 @@ java.util.InputMismatchException: null
 10:43:20.963 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - Caching SQL error codes for DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@52815fa3]: database product name is 'H2'
 10:43:20.963 [main] DEBUG o.s.j.s.SQLErrorCodeSQLExceptionTranslator - Translating SQLException with SQL state '23502', error code '23502', message [NULL not allowed for column "STUDENTNAME"; SQL statement:
 insert into student (id, studentName,lastName) values(?, ?, ?) [23502-214]]; SQL was [insert into student (id, studentName,lastName) values(?, ?, ?)] for task [PreparedStatementCallback]
+10:47:17.150 [main] INFO  com.review.MainCrud - Logger Initialized!!
+10:47:17.238 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@10a035a0
+10:47:17.500 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+10:47:17.552 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+10:47:17.684 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+10:47:17.687 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+10:47:17.745 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+10:47:29.678 [main] DEBUG org.testng.TestNG - suiteXmlPath: "/Users/ishasethia/Library/Caches/JetBrains/IdeaIC2021.3/temp-testng-customsuite.xml"
+10:47:29.968 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@55b0dcab
+10:47:30.147 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+10:47:30.175 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+10:47:30.264 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+10:47:30.267 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+10:47:30.303 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+10:47:30.399 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.testOnDelete()[pri:3, instance:test.TestMainCrud@d771cc9] -144662703
+10:47:30.399 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.testOnUpdate()[pri:2, instance:test.TestMainCrud@d771cc9] 633599723
+10:47:30.399 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.testOnInsert()[pri:1, instance:test.TestMainCrud@d771cc9] 759316219
+10:47:30.400 [main] DEBUG org.testng.internal.Graph - [Graph] ================ SORTING
+10:47:30.410 [main] DEBUG org.testng.internal.Graph - [Graph] =============== DONE SORTING
+10:47:30.410 [main] DEBUG org.testng.internal.Graph - [Graph] ====== SORTED NODES
+10:47:30.411 [main] DEBUG org.testng.internal.Graph - [Graph] ====== END SORTED NODES
+10:47:30.415 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  /Users/ishasethia/Library/Caches/JetBrains/IdeaIC2021.3/temp-testng-customsuite.xml
+
+10:47:30.464 [main] INFO  test.TestMainCrud - Test on Insert started!!
+10:47:30.465 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:47:30.466 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into student (id, studentName,lastName) values(?, ?, ?)]
+10:47:30.469 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:47:30.470 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:47:30.578 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:47:30.578 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into studentPersonalDetails(studentId, fatherName, motherName, address,dob) values(?, ?, ?, ?, ?)]
+10:47:30.579 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:47:30.579 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:47:30.585 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:47:30.585 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into studentMarks(studentId, english, hindi, maths, science, social, percentage)values(?, ?, ?, ?, ?, ?, ?)]
+10:47:30.586 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:47:30.586 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:47:30.591 [main] INFO  test.TestMainCrud - Inserted ID 4 Data
+10:47:30.617 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+10:47:30.617 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [ select student.id, student.studentName, student.lastName,  studentPersonalDetails.fatherName, studentPersonalDetails.motherName, studentPersonalDetails.address, studentPersonalDetails.dob, studentMarks.english, studentMarks.hindi, studentMarks.maths, studentMarks.science, studentMarks.social, studentMarks.percentage  from student join studentMarks on student.id = studentMarks.studentId join studentPersonalDetails on studentPersonalDetails.studentId = student.id where student.id = ? ]
+10:47:30.617 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:47:30.617 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:47:30.669 [main] INFO  test.TestMainCrud - Test on Update started!!
+10:47:30.669 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:47:30.669 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update student set studentName = ? where id = ?]
+10:47:30.670 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:47:30.670 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:47:30.675 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:47:30.675 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update student set lastName = ? where id = ?]
+10:47:30.675 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:47:30.676 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:47:30.681 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:47:30.682 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set fatherName = ? where studentId = ?]
+10:47:30.682 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:47:30.682 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:47:30.688 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:47:30.688 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set motherName = ? where studentId = ?]
+10:47:30.688 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:47:30.688 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:47:30.693 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:47:30.693 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set address = ? where studentId = ?]
+10:47:30.693 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:47:30.693 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:47:30.698 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:47:30.698 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set dob = ? where studentId = ?]
+10:47:30.698 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:47:30.698 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:47:30.704 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:47:30.704 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set english = ? where studentId = ?]
+10:47:30.704 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:47:30.704 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:47:30.710 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:47:30.710 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set hindi = ? where studentId = ?]
+10:47:30.710 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:47:30.710 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:47:30.716 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:47:30.716 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set maths = ? where studentId = ?]
+10:47:30.716 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:47:30.716 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:47:30.725 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:47:30.726 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set science = ? where studentId = ?]
+10:47:30.726 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:47:30.726 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:47:30.736 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:47:30.736 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set social = ? where studentId = ?]
+10:47:30.736 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:47:30.736 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:47:30.742 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+10:47:30.742 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [select * from studentMarks where studentId = ?]
+10:47:30.742 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:47:30.742 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:47:30.748 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:47:30.749 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set percentage = ? where studentId = ?]
+10:47:30.749 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:47:30.749 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:47:30.755 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+10:47:30.755 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [ select student.id, student.studentName, student.lastName,  studentPersonalDetails.fatherName, studentPersonalDetails.motherName, studentPersonalDetails.address, studentPersonalDetails.dob, studentMarks.english, studentMarks.hindi, studentMarks.maths, studentMarks.science, studentMarks.social, studentMarks.percentage  from student join studentMarks on student.id = studentMarks.studentId join studentPersonalDetails on studentPersonalDetails.studentId = student.id where student.id = ? ]
+10:47:30.755 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:47:30.755 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:47:30.766 [main] INFO  test.TestMainCrud - Test on Delete started!!
+10:47:30.767 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:47:30.767 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from student where id = ?]
+10:47:30.768 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:47:30.768 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:47:30.777 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:47:30.780 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from studentPersonalDetails where studentId = ?]
+10:47:30.781 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:47:30.781 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:47:30.787 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:47:30.787 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from studentMarks where studentId = ?]
+10:47:30.787 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:47:30.787 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:47:30.791 [main] INFO  test.TestMainCrud - ID 4 Data deleted
+10:48:58.804 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@43c1b556
+10:48:59.016 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+10:48:59.147 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+10:48:59.226 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+10:48:59.227 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+10:48:59.288 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+10:48:59.492 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.testOnDelete()[pri:3, instance:test.TestMainCrud@51fadaff] 1004821895
+10:48:59.493 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.testOnUpdate()[pri:2, instance:test.TestMainCrud@51fadaff] 1783084321
+10:48:59.493 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.testOnInsert()[pri:1, instance:test.TestMainCrud@51fadaff] 1908800817
+10:48:59.493 [main] DEBUG org.testng.internal.Graph - [Graph] ================ SORTING
+10:48:59.496 [main] DEBUG org.testng.internal.Graph - [Graph] =============== DONE SORTING
+10:48:59.497 [main] DEBUG org.testng.internal.Graph - [Graph] ====== SORTED NODES
+10:48:59.497 [main] DEBUG org.testng.internal.Graph - [Graph] ====== END SORTED NODES
+10:48:59.552 [main] INFO  test.TestMainCrud - Test on Insert started!!
+10:48:59.554 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:48:59.555 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into student (id, studentName,lastName) values(?, ?, ?)]
+10:48:59.573 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:48:59.573 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:48:59.914 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:48:59.914 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into studentPersonalDetails(studentId, fatherName, motherName, address,dob) values(?, ?, ?, ?, ?)]
+10:48:59.914 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:48:59.914 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:48:59.920 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:48:59.920 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into studentMarks(studentId, english, hindi, maths, science, social, percentage)values(?, ?, ?, ?, ?, ?, ?)]
+10:48:59.920 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:48:59.920 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:48:59.927 [main] INFO  test.TestMainCrud - Inserted ID 4 Data
+10:48:59.928 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+10:48:59.929 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [ select student.id, student.studentName, student.lastName,  studentPersonalDetails.fatherName, studentPersonalDetails.motherName, studentPersonalDetails.address, studentPersonalDetails.dob, studentMarks.english, studentMarks.hindi, studentMarks.maths, studentMarks.science, studentMarks.social, studentMarks.percentage  from student join studentMarks on student.id = studentMarks.studentId join studentPersonalDetails on studentPersonalDetails.studentId = student.id where student.id = ? ]
+10:48:59.929 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:48:59.929 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:48:59.961 [main] INFO  test.TestMainCrud - Test on Update started!!
+10:48:59.961 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:48:59.961 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update student set studentName = ? where id = ?]
+10:48:59.961 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:48:59.961 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:48:59.966 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:48:59.966 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update student set lastName = ? where id = ?]
+10:48:59.966 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:48:59.966 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:48:59.971 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:48:59.971 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set fatherName = ? where studentId = ?]
+10:48:59.971 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:48:59.971 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:48:59.976 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:48:59.976 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set motherName = ? where studentId = ?]
+10:48:59.976 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:48:59.976 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:48:59.981 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:48:59.982 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set address = ? where studentId = ?]
+10:48:59.982 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:48:59.982 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:48:59.987 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:48:59.987 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set dob = ? where studentId = ?]
+10:48:59.987 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:48:59.987 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:48:59.992 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:48:59.992 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set english = ? where studentId = ?]
+10:48:59.992 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:48:59.992 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:48:59.996 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:48:59.997 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set hindi = ? where studentId = ?]
+10:48:59.997 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:48:59.997 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:00.002 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:49:00.002 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set maths = ? where studentId = ?]
+10:49:00.002 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:00.002 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:00.008 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:49:00.008 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set science = ? where studentId = ?]
+10:49:00.008 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:00.009 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:00.021 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:49:00.022 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set social = ? where studentId = ?]
+10:49:00.022 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:00.022 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:00.037 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+10:49:00.037 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [select * from studentMarks where studentId = ?]
+10:49:00.037 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:00.037 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:00.042 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:49:00.042 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set percentage = ? where studentId = ?]
+10:49:00.042 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:00.042 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:00.049 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+10:49:00.049 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [ select student.id, student.studentName, student.lastName,  studentPersonalDetails.fatherName, studentPersonalDetails.motherName, studentPersonalDetails.address, studentPersonalDetails.dob, studentMarks.english, studentMarks.hindi, studentMarks.maths, studentMarks.science, studentMarks.social, studentMarks.percentage  from student join studentMarks on student.id = studentMarks.studentId join studentPersonalDetails on studentPersonalDetails.studentId = student.id where student.id = ? ]
+10:49:00.049 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:00.049 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:00.057 [main] INFO  test.TestMainCrud - Test on Delete started!!
+10:49:00.057 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:49:00.057 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from student where id = ?]
+10:49:00.057 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:00.057 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:00.061 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:49:00.062 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from studentPersonalDetails where studentId = ?]
+10:49:00.062 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:00.062 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:00.066 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:49:00.066 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from studentMarks where studentId = ?]
+10:49:00.066 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:00.066 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:00.070 [main] INFO  test.TestMainCrud - ID 4 Data deleted
+10:49:38.172 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@6f4a47c7
+10:49:38.388 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+10:49:38.553 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+10:49:38.648 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+10:49:38.649 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+10:49:38.743 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+10:49:39.412 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.testOnDelete()[pri:3, instance:test.TestMainCrud@2796aeae] 293613878
+10:49:39.413 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.testOnUpdate()[pri:2, instance:test.TestMainCrud@2796aeae] 1071876304
+10:49:39.413 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.testOnInsert()[pri:1, instance:test.TestMainCrud@2796aeae] 1197592800
+10:49:39.413 [main] DEBUG org.testng.internal.Graph - [Graph] ================ SORTING
+10:49:39.416 [main] DEBUG org.testng.internal.Graph - [Graph] =============== DONE SORTING
+10:49:39.416 [main] DEBUG org.testng.internal.Graph - [Graph] ====== SORTED NODES
+10:49:39.417 [main] DEBUG org.testng.internal.Graph - [Graph] ====== END SORTED NODES
+10:49:39.464 [main] INFO  test.TestMainCrud - Test on Insert started!!
+10:49:39.466 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:49:39.468 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into student (id, studentName,lastName) values(?, ?, ?)]
+10:49:39.530 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:39.530 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:39.727 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:49:39.727 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into studentPersonalDetails(studentId, fatherName, motherName, address,dob) values(?, ?, ?, ?, ?)]
+10:49:39.727 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:39.727 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:39.732 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:49:39.732 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into studentMarks(studentId, english, hindi, maths, science, social, percentage)values(?, ?, ?, ?, ?, ?, ?)]
+10:49:39.732 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:39.732 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:39.740 [main] INFO  test.TestMainCrud - Inserted ID 4 Data
+10:49:39.741 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+10:49:39.741 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [ select student.id, student.studentName, student.lastName,  studentPersonalDetails.fatherName, studentPersonalDetails.motherName, studentPersonalDetails.address, studentPersonalDetails.dob, studentMarks.english, studentMarks.hindi, studentMarks.maths, studentMarks.science, studentMarks.social, studentMarks.percentage  from student join studentMarks on student.id = studentMarks.studentId join studentPersonalDetails on studentPersonalDetails.studentId = student.id where student.id = ? ]
+10:49:39.741 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:39.741 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:39.774 [main] INFO  test.TestMainCrud - Test on Update started!!
+10:49:39.774 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:49:39.774 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update student set studentName = ? where id = ?]
+10:49:39.774 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:39.774 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:39.779 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:49:39.779 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update student set lastName = ? where id = ?]
+10:49:39.779 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:39.779 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:39.784 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:49:39.784 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set fatherName = ? where studentId = ?]
+10:49:39.784 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:39.784 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:39.790 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:49:39.790 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set motherName = ? where studentId = ?]
+10:49:39.790 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:39.790 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:39.795 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:49:39.795 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set address = ? where studentId = ?]
+10:49:39.795 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:39.796 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:39.800 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:49:39.800 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set dob = ? where studentId = ?]
+10:49:39.800 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:39.800 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:39.805 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:49:39.805 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set english = ? where studentId = ?]
+10:49:39.805 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:39.805 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:39.811 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:49:39.811 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set hindi = ? where studentId = ?]
+10:49:39.811 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:39.811 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:39.816 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:49:39.816 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set maths = ? where studentId = ?]
+10:49:39.816 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:39.816 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:39.820 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:49:39.821 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set science = ? where studentId = ?]
+10:49:39.821 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:39.821 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:39.825 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:49:39.826 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set social = ? where studentId = ?]
+10:49:39.826 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:39.826 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:39.831 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+10:49:39.831 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [select * from studentMarks where studentId = ?]
+10:49:39.831 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:39.831 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:39.835 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:49:39.836 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set percentage = ? where studentId = ?]
+10:49:39.836 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:39.836 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:39.840 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+10:49:39.840 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [ select student.id, student.studentName, student.lastName,  studentPersonalDetails.fatherName, studentPersonalDetails.motherName, studentPersonalDetails.address, studentPersonalDetails.dob, studentMarks.english, studentMarks.hindi, studentMarks.maths, studentMarks.science, studentMarks.social, studentMarks.percentage  from student join studentMarks on student.id = studentMarks.studentId join studentPersonalDetails on studentPersonalDetails.studentId = student.id where student.id = ? ]
+10:49:39.840 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:39.840 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:39.847 [main] INFO  test.TestMainCrud - Test on Delete started!!
+10:49:39.848 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:49:39.848 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from student where id = ?]
+10:49:39.848 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:39.848 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:39.852 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:49:39.852 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from studentPersonalDetails where studentId = ?]
+10:49:39.852 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:39.852 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:39.857 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:49:39.857 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from studentMarks where studentId = ?]
+10:49:39.857 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:49:39.857 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:49:39.861 [main] INFO  test.TestMainCrud - ID 4 Data deleted
+10:50:06.107 [main] DEBUG org.testng.TestNG - suiteXmlPath: "/Users/ishasethia/Library/Caches/JetBrains/IdeaIC2021.3/temp-testng-customsuite.xml"
+10:50:06.401 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@55b0dcab
+10:50:06.610 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+10:50:06.662 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+10:50:06.726 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+10:50:06.728 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+10:50:06.767 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+10:50:06.850 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.testOnDelete()[pri:3, instance:test.TestMainCrud@d771cc9] -144662703
+10:50:06.850 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.testOnUpdate()[pri:2, instance:test.TestMainCrud@d771cc9] 633599723
+10:50:06.850 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.testOnInsert()[pri:1, instance:test.TestMainCrud@d771cc9] 759316219
+10:50:06.851 [main] DEBUG org.testng.internal.Graph - [Graph] ================ SORTING
+10:50:06.856 [main] DEBUG org.testng.internal.Graph - [Graph] =============== DONE SORTING
+10:50:06.856 [main] DEBUG org.testng.internal.Graph - [Graph] ====== SORTED NODES
+10:50:06.856 [main] DEBUG org.testng.internal.Graph - [Graph] ====== END SORTED NODES
+10:50:06.860 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  /Users/ishasethia/Library/Caches/JetBrains/IdeaIC2021.3/temp-testng-customsuite.xml
+
+10:50:06.928 [main] INFO  test.TestMainCrud - Test on Insert started!!
+10:50:06.929 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:50:06.931 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into student (id, studentName,lastName) values(?, ?, ?)]
+10:50:06.939 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:50:06.939 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:50:07.048 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:50:07.048 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into studentPersonalDetails(studentId, fatherName, motherName, address,dob) values(?, ?, ?, ?, ?)]
+10:50:07.048 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:50:07.048 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:50:07.054 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:50:07.054 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into studentMarks(studentId, english, hindi, maths, science, social, percentage)values(?, ?, ?, ?, ?, ?, ?)]
+10:50:07.054 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:50:07.054 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:50:07.059 [main] INFO  test.TestMainCrud - Inserted ID 4 Data
+10:50:07.060 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+10:50:07.061 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [ select student.id, student.studentName, student.lastName,  studentPersonalDetails.fatherName, studentPersonalDetails.motherName, studentPersonalDetails.address, studentPersonalDetails.dob, studentMarks.english, studentMarks.hindi, studentMarks.maths, studentMarks.science, studentMarks.social, studentMarks.percentage  from student join studentMarks on student.id = studentMarks.studentId join studentPersonalDetails on studentPersonalDetails.studentId = student.id where student.id = ? ]
+10:50:07.061 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:50:07.061 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:50:07.082 [main] INFO  test.TestMainCrud - Test on Update started!!
+10:50:07.082 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:50:07.082 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update student set studentName = ? where id = ?]
+10:50:07.082 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:50:07.083 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:50:07.090 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:50:07.090 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update student set lastName = ? where id = ?]
+10:50:07.090 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:50:07.090 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:50:07.095 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:50:07.096 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set fatherName = ? where studentId = ?]
+10:50:07.096 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:50:07.096 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:50:07.102 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:50:07.103 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set motherName = ? where studentId = ?]
+10:50:07.103 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:50:07.104 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:50:07.108 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:50:07.109 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set address = ? where studentId = ?]
+10:50:07.109 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:50:07.109 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:50:07.113 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:50:07.114 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set dob = ? where studentId = ?]
+10:50:07.114 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:50:07.114 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:50:07.118 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:50:07.118 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set english = ? where studentId = ?]
+10:50:07.118 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:50:07.118 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:50:07.123 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:50:07.123 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set hindi = ? where studentId = ?]
+10:50:07.124 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:50:07.124 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:50:07.129 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:50:07.129 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set maths = ? where studentId = ?]
+10:50:07.129 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:50:07.129 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:50:07.134 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:50:07.134 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set science = ? where studentId = ?]
+10:50:07.134 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:50:07.134 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:50:07.140 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:50:07.140 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set social = ? where studentId = ?]
+10:50:07.140 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:50:07.140 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:50:07.145 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+10:50:07.145 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [select * from studentMarks where studentId = ?]
+10:50:07.146 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:50:07.146 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:50:07.150 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:50:07.150 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set percentage = ? where studentId = ?]
+10:50:07.150 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:50:07.150 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:50:07.159 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+10:50:07.159 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [ select student.id, student.studentName, student.lastName,  studentPersonalDetails.fatherName, studentPersonalDetails.motherName, studentPersonalDetails.address, studentPersonalDetails.dob, studentMarks.english, studentMarks.hindi, studentMarks.maths, studentMarks.science, studentMarks.social, studentMarks.percentage  from student join studentMarks on student.id = studentMarks.studentId join studentPersonalDetails on studentPersonalDetails.studentId = student.id where student.id = ? ]
+10:50:07.159 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:50:07.160 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:50:07.169 [main] INFO  test.TestMainCrud - Test on Delete started!!
+10:50:07.170 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:50:07.170 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from student where id = ?]
+10:50:07.170 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:50:07.170 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:50:07.175 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:50:07.176 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from studentPersonalDetails where studentId = ?]
+10:50:07.176 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:50:07.176 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:50:07.180 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+10:50:07.180 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from studentMarks where studentId = ?]
+10:50:07.180 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+10:50:07.180 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+10:50:07.184 [main] INFO  test.TestMainCrud - ID 4 Data deleted
+11:21:52.788 [main] DEBUG org.testng.TestNG - suiteXmlPath: "/Users/ishasethia/Library/Caches/JetBrains/IdeaIC2021.3/temp-testng-customsuite.xml"
+11:21:53.398 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@752325ad
+11:21:53.783 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+11:21:53.899 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+11:21:53.983 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+11:21:53.985 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+11:21:54.010 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+11:21:54.127 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.testOnDelete()[pri:3, instance:test.TestMainCrud@7393222f] 1568449719
+11:21:54.127 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.testOnUpdate()[pri:2, instance:test.TestMainCrud@7393222f] -1948255151
+11:21:54.128 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.testOnInsert()[pri:1, instance:test.TestMainCrud@7393222f] -1822538655
+11:21:54.128 [main] DEBUG org.testng.internal.Graph - [Graph] ================ SORTING
+11:21:54.131 [main] DEBUG org.testng.internal.Graph - [Graph] =============== DONE SORTING
+11:21:54.131 [main] DEBUG org.testng.internal.Graph - [Graph] ====== SORTED NODES
+11:21:54.131 [main] DEBUG org.testng.internal.Graph - [Graph] ====== END SORTED NODES
+11:21:54.136 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  /Users/ishasethia/Library/Caches/JetBrains/IdeaIC2021.3/temp-testng-customsuite.xml
+
+11:21:54.194 [main] INFO  test.TestMainCrud - Test on Insert started!!
+11:21:54.215 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:21:54.216 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into student (id, studentName,lastName) values(?, ?, ?)]
+11:21:54.245 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:21:54.245 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:21:54.415 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:21:54.415 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into studentPersonalDetails(studentId, fatherName, motherName, address,dob) values(?, ?, ?, ?, ?)]
+11:21:54.415 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:21:54.415 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:21:54.423 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:21:54.424 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into studentMarks(studentId, english, hindi, maths, science, social, percentage)values(?, ?, ?, ?, ?, ?, ?)]
+11:21:54.424 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:21:54.424 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:21:54.429 [main] INFO  test.TestMainCrud - Inserted ID 4 Data
+11:21:54.445 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+11:21:54.446 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [ select student.id, student.studentName, student.lastName,  studentPersonalDetails.fatherName, studentPersonalDetails.motherName, studentPersonalDetails.address, studentPersonalDetails.dob, studentMarks.english, studentMarks.hindi, studentMarks.maths, studentMarks.science, studentMarks.social, studentMarks.percentage  from student join studentMarks on student.id = studentMarks.studentId join studentPersonalDetails on studentPersonalDetails.studentId = student.id where student.id = ? ]
+11:21:54.446 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:21:54.446 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:21:54.456 [main] INFO  test.TestMainCrud - Data of ID 4 is inserted is Student{studentId=4, studentName='Noumi', studentLastName='Bhura', fatherName='Mahesh', motherName='Durga', address='Leh', dob='1999-10-18', english=66.0, hindi=77.0, maths=98.0, science=89.0, social=89.0, percentage=83.8}
+ 
+11:21:54.470 [main] INFO  test.TestMainCrud - Student{studentId=4, studentName='Noumi', studentLastName='Bhura', fatherName='Mahesh', motherName='Durga', address='Leh', dob='1999-10-18', english=66.0, hindi=77.0, maths=98.0, science=89.0, social=89.0, percentage=83.8}
+
+11:21:54.471 [main] INFO  test.TestMainCrud - Fetched Data of ID 4 is Student{studentId=4, studentName='Noumi', studentLastName='Bhura', fatherName='Mahesh', motherName='Durga', address='Leh', dob='1999-10-18', english=66.0, hindi=77.0, maths=98.0, science=89.0, social=89.0, percentage=83.8}
+ 
+11:21:54.494 [main] INFO  test.TestMainCrud - Test on Update started!!
+11:21:54.494 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:21:54.494 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update student set studentName = ? where id = ?]
+11:21:54.495 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:21:54.495 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:21:54.501 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:21:54.501 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update student set lastName = ? where id = ?]
+11:21:54.502 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:21:54.502 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:21:54.509 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:21:54.509 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set fatherName = ? where studentId = ?]
+11:21:54.509 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:21:54.509 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:21:54.515 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:21:54.515 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set motherName = ? where studentId = ?]
+11:21:54.515 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:21:54.515 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:21:54.520 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:21:54.521 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set address = ? where studentId = ?]
+11:21:54.521 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:21:54.521 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:21:54.526 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:21:54.526 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set dob = ? where studentId = ?]
+11:21:54.526 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:21:54.526 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:21:54.530 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:21:54.530 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set english = ? where studentId = ?]
+11:21:54.530 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:21:54.531 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:21:54.535 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:21:54.535 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set hindi = ? where studentId = ?]
+11:21:54.535 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:21:54.535 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:21:54.540 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:21:54.541 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set maths = ? where studentId = ?]
+11:21:54.541 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:21:54.541 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:21:54.546 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:21:54.546 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set science = ? where studentId = ?]
+11:21:54.546 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:21:54.546 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:21:54.553 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:21:54.554 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set social = ? where studentId = ?]
+11:21:54.554 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:21:54.554 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:21:54.567 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+11:21:54.568 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [select * from studentMarks where studentId = ?]
+11:21:54.568 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:21:54.568 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:21:54.573 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:21:54.573 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set percentage = ? where studentId = ?]
+11:21:54.573 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:21:54.573 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:21:54.578 [main] INFO  test.TestMainCrud - Data of ID 4 is Updated is Student{studentId=4, studentName='GIGI', studentLastName='Soni', fatherName='Deepak', motherName='Jasmine', address='Banglore', dob='1999-09-22', english=99.0, hindi=98.0, maths=99.0, science=99.0, social=99.0, percentage=98.8}
+ 
+11:21:54.578 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+11:21:54.578 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [ select student.id, student.studentName, student.lastName,  studentPersonalDetails.fatherName, studentPersonalDetails.motherName, studentPersonalDetails.address, studentPersonalDetails.dob, studentMarks.english, studentMarks.hindi, studentMarks.maths, studentMarks.science, studentMarks.social, studentMarks.percentage  from student join studentMarks on student.id = studentMarks.studentId join studentPersonalDetails on studentPersonalDetails.studentId = student.id where student.id = ? ]
+11:21:54.579 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:21:54.579 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:21:54.583 [main] INFO  test.TestMainCrud - Data of ID 4 is inserted is Student{studentId=4, studentName='GIGI', studentLastName='Soni', fatherName='Deepak', motherName='Jasmine', address='Banglore', dob='1999-09-22', english=99.0, hindi=98.0, maths=99.0, science=99.0, social=99.0, percentage=98.8}
+ 
+11:21:54.587 [main] INFO  test.TestMainCrud - Test on Delete started!!
+11:21:54.588 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:21:54.588 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from student where id = ?]
+11:21:54.588 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:21:54.588 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:21:54.596 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:21:54.596 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from studentPersonalDetails where studentId = ?]
+11:21:54.596 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:21:54.596 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:21:54.600 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:21:54.601 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from studentMarks where studentId = ?]
+11:21:54.602 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:21:54.602 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:21:54.607 [main] INFO  test.TestMainCrud - ID 4 Data deleted
+11:28:24.604 [main] DEBUG org.testng.TestNG - suiteXmlPath: "/Users/ishasethia/Library/Caches/JetBrains/IdeaIC2021.3/temp-testng-customsuite.xml"
+11:28:25.180 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@6f4a47c7
+11:28:25.824 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+11:28:26.153 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+11:28:26.300 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+11:28:26.314 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+11:28:26.657 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+11:28:27.435 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.setUp()[pri:0, instance:null] 1450404343
+11:28:27.435 [main] DEBUG org.testng.internal.Graph - [Graph] ================ SORTING
+11:28:27.439 [main] DEBUG org.testng.internal.Graph - [Graph] =============== DONE SORTING
+11:28:27.439 [main] DEBUG org.testng.internal.Graph - [Graph] ====== SORTED NODES
+11:28:27.439 [main] DEBUG org.testng.internal.Graph - [Graph] ====== END SORTED NODES
+11:28:27.441 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.tearDown()[pri:0, instance:null] -868383360
+11:28:27.441 [main] DEBUG org.testng.internal.Graph - [Graph] ================ SORTING
+11:28:27.441 [main] DEBUG org.testng.internal.Graph - [Graph] =============== DONE SORTING
+11:28:27.441 [main] DEBUG org.testng.internal.Graph - [Graph] ====== SORTED NODES
+11:28:27.441 [main] DEBUG org.testng.internal.Graph - [Graph] ====== END SORTED NODES
+11:28:27.450 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.testOnDelete()[pri:3, instance:test.TestMainCrud@56673b2c] 1079033268
+11:28:27.450 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.testOnUpdate()[pri:2, instance:test.TestMainCrud@56673b2c] 1857295694
+11:28:27.450 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.testOnInsert()[pri:1, instance:test.TestMainCrud@56673b2c] 1983012190
+11:28:27.450 [main] DEBUG org.testng.internal.Graph - [Graph] ================ SORTING
+11:28:27.452 [main] DEBUG org.testng.internal.Graph - [Graph] =============== DONE SORTING
+11:28:27.452 [main] DEBUG org.testng.internal.Graph - [Graph] ====== SORTED NODES
+11:28:27.452 [main] DEBUG org.testng.internal.Graph - [Graph] ====== END SORTED NODES
+11:28:27.457 [main] INFO  org.testng.internal.Utils - [TestNG] Running:
+  /Users/ishasethia/Library/Caches/JetBrains/IdeaIC2021.3/temp-testng-customsuite.xml
+
+11:28:27.773 [main] INFO  test.TestMainCrud - Logger in test
+11:28:27.782 [main] INFO  test.TestMainCrud - Test on Insert started!!
+11:28:27.853 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:28:27.854 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into student (id, studentName,lastName) values(?, ?, ?)]
+11:28:28.134 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:28:28.135 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:28:29.786 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:28:29.786 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into studentPersonalDetails(studentId, fatherName, motherName, address,dob) values(?, ?, ?, ?, ?)]
+11:28:29.786 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:28:29.786 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:28:29.790 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:28:29.791 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into studentMarks(studentId, english, hindi, maths, science, social, percentage)values(?, ?, ?, ?, ?, ?, ?)]
+11:28:29.791 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:28:29.791 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:28:29.794 [main] INFO  test.TestMainCrud - Inserted ID 4 Data
+11:28:29.885 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+11:28:29.885 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [ select student.id, student.studentName, student.lastName,  studentPersonalDetails.fatherName, studentPersonalDetails.motherName, studentPersonalDetails.address, studentPersonalDetails.dob, studentMarks.english, studentMarks.hindi, studentMarks.maths, studentMarks.science, studentMarks.social, studentMarks.percentage  from student join studentMarks on student.id = studentMarks.studentId join studentPersonalDetails on studentPersonalDetails.studentId = student.id where student.id = ? ]
+11:28:29.885 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:28:29.885 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:28:30.095 [main] INFO  test.TestMainCrud - Data of ID 4 
+11:28:30.095 [main] INFO  test.TestMainCrud - Data Inserted:= Student{studentId=4, studentName='Noumi', studentLastName='Bhura', fatherName='Mahesh', motherName='Durga', address='Leh', dob='1999-10-18', english=66.0, hindi=77.0, maths=98.0, science=89.0, social=89.0, percentage=83.8}
+
+11:28:30.113 [main] INFO  test.TestMainCrud - Data of ID 4 
+11:28:30.113 [main] INFO  test.TestMainCrud - Data Fetched:= Student{studentId=4, studentName='Noumi', studentLastName='Bhura', fatherName='Mahesh', motherName='Durga', address='Leh', dob='1999-10-18', english=66.0, hindi=77.0, maths=98.0, science=89.0, social=89.0, percentage=83.8}
+
+11:28:30.155 [main] INFO  test.TestMainCrud - Test on Update started!!
+11:28:30.156 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:28:30.156 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update student set studentName = ? where id = ?]
+11:28:30.156 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:28:30.156 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:28:30.164 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:28:30.165 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update student set lastName = ? where id = ?]
+11:28:30.165 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:28:30.165 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:28:30.170 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:28:30.170 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set fatherName = ? where studentId = ?]
+11:28:30.170 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:28:30.170 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:28:30.174 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:28:30.175 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set motherName = ? where studentId = ?]
+11:28:30.175 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:28:30.175 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:28:30.179 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:28:30.180 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set address = ? where studentId = ?]
+11:28:30.180 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:28:30.180 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:28:30.184 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:28:30.184 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set dob = ? where studentId = ?]
+11:28:30.184 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:28:30.184 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:28:30.189 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:28:30.189 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set english = ? where studentId = ?]
+11:28:30.189 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:28:30.189 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:28:30.193 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:28:30.193 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set hindi = ? where studentId = ?]
+11:28:30.193 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:28:30.193 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:28:30.197 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:28:30.198 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set maths = ? where studentId = ?]
+11:28:30.252 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:28:30.252 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:28:30.258 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:28:30.446 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set science = ? where studentId = ?]
+11:28:30.446 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:28:30.446 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:28:30.453 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:28:30.453 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set social = ? where studentId = ?]
+11:28:30.453 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:28:30.453 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:28:30.517 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+11:28:30.518 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [select * from studentMarks where studentId = ?]
+11:28:30.518 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:28:30.518 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:28:30.524 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:28:30.525 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set percentage = ? where studentId = ?]
+11:28:30.525 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:28:30.525 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:28:30.530 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+11:28:30.530 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [ select student.id, student.studentName, student.lastName,  studentPersonalDetails.fatherName, studentPersonalDetails.motherName, studentPersonalDetails.address, studentPersonalDetails.dob, studentMarks.english, studentMarks.hindi, studentMarks.maths, studentMarks.science, studentMarks.social, studentMarks.percentage  from student join studentMarks on student.id = studentMarks.studentId join studentPersonalDetails on studentPersonalDetails.studentId = student.id where student.id = ? ]
+11:28:30.531 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:28:30.531 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:28:30.535 [main] INFO  test.TestMainCrud - Data of ID 4 
+11:28:30.536 [main] INFO  test.TestMainCrud - Data updated:= Student{studentId=4, studentName='GIGI', studentLastName='Soni', fatherName='Deepak', motherName='Jasmine', address='Banglore', dob='1999-09-22', english=99.0, hindi=98.0, maths=99.0, science=99.0, social=99.0, percentage=98.8}
+
+11:28:30.536 [main] INFO  test.TestMainCrud - Data of ID 4 
+11:28:30.536 [main] INFO  test.TestMainCrud - Data fetched:= Student{studentId=4, studentName='GIGI', studentLastName='Soni', fatherName='Deepak', motherName='Jasmine', address='Banglore', dob='1999-09-22', english=99.0, hindi=98.0, maths=99.0, science=99.0, social=99.0, percentage=98.8}
+
+11:28:30.538 [main] INFO  test.TestMainCrud - Test on Delete started!!
+11:28:30.538 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:28:30.538 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from student where id = ?]
+11:28:30.558 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:28:30.558 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:28:30.562 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:28:30.562 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from studentPersonalDetails where studentId = ?]
+11:28:30.562 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:28:30.562 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:28:30.566 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+11:28:30.567 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from studentMarks where studentId = ?]
+11:28:30.567 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+11:28:30.567 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+11:28:30.570 [main] INFO  test.TestMainCrud - ID 4 Data deleted
+11:28:30.595 [main] INFO  test.TestMainCrud - Logger Exit in TEST
+14:04:26.935 [main] INFO  com.review.MainCrud - Logger Initialized!!
+14:04:27.151 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@2de8284b
+14:04:27.843 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+14:04:27.963 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+14:04:28.063 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+14:04:28.120 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+14:04:28.282 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+14:04:31.642 [main] INFO  com.review.MainCrud - Logger in SetInsertRecords
+14:04:34.690 [main] INFO  com.review.MainCrud - For ID 1
+14:32:48.583 [main] INFO  com.review.MainCrud - Logger Initialized!!
+14:32:48.810 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@22eeefeb
+14:32:49.182 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+14:32:49.292 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+14:32:49.611 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+14:32:49.624 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+14:32:49.672 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+14:32:50.666 [main] INFO  com.review.MainCrud - Logger in SetInsertRecords
+14:32:51.311 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+14:32:51.311 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [select * from studentMarks where studentId = ?]
+14:32:51.340 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:32:51.340 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:32:51.548 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+14:32:51.549 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into student (id, studentName,lastName) values(?, ?, ?)]
+14:32:51.549 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:32:51.550 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:32:51.614 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 11 bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+14:32:51.615 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'DB2'
+14:32:51.630 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'Derby'
+14:32:51.631 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'H2'
+14:32:51.632 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'HDB'
+14:32:51.635 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'HSQL'
+14:32:51.636 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'Informix'
+14:32:51.636 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'MS-SQL'
+14:32:51.637 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'MySQL'
+14:32:51.638 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'Oracle'
+14:32:51.639 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'PostgreSQL'
+14:32:51.640 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'Sybase'
+14:32:51.642 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - Looking up default SQLErrorCodes for DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@4d518b32]
+14:32:51.643 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:32:51.643 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:32:51.655 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - SQL error codes for 'H2' found
+14:32:51.655 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - Caching SQL error codes for DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@4d518b32]: database product name is 'H2'
+14:32:51.656 [main] DEBUG o.s.j.s.SQLErrorCodeSQLExceptionTranslator - Translating SQLException with SQL state '23502', error code '23502', message [NULL not allowed for column "STUDENTNAME"; SQL statement:
+insert into student (id, studentName,lastName) values(?, ?, ?) [23502-214]]; SQL was [insert into student (id, studentName,lastName) values(?, ?, ?)] for task [PreparedStatementCallback]
+14:36:12.399 [main] INFO  com.review.MainCrud - Logger Initialized!!
+14:36:12.647 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@396e2f39
+14:36:12.955 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+14:36:13.124 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+14:36:13.875 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+14:36:13.895 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+14:36:14.162 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+14:36:15.183 [main] INFO  com.review.MainCrud - Logger in SetInsertRecords
+14:36:19.142 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+14:36:19.143 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [select * from studentMarks where studentId = ?]
+14:36:19.171 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:36:19.171 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:38:13.955 [main] INFO  com.review.MainCrud - Logger Initialized!!
+14:38:14.621 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@a74868d
+14:38:16.051 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+14:38:16.419 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+14:38:16.550 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+14:38:16.563 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+14:38:16.625 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+14:38:17.679 [main] INFO  com.review.MainCrud - Logger in SetInsertRecords
+14:38:19.649 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+14:38:19.650 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [select * from studentMarks where studentId = ?]
+14:38:19.679 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:38:19.680 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:38:30.614 [main] INFO  com.review.MainCrud - Logger Initialized!!
+14:38:30.675 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@10a035a0
+14:38:30.956 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+14:38:31.006 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+14:38:31.112 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+14:38:31.115 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+14:38:31.213 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+14:38:33.511 [main] INFO  com.review.MainCrud - Logger in SetInsertRecords
+14:38:35.328 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+14:38:35.329 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [select * from studentMarks where studentId = ?]
+14:38:35.334 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:38:35.334 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:39:52.770 [main] INFO  com.review.MainCrud - Logger Initialized!!
+14:39:53.624 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@22eeefeb
+14:39:54.222 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+14:39:54.533 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+14:39:54.632 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+14:39:54.634 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+14:39:54.679 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+14:39:56.073 [main] INFO  com.review.MainCrud - Logger in SetInsertRecords
+14:39:57.753 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+14:39:57.753 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [select id from student where id = ?]
+14:39:57.784 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:39:57.784 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:40:16.305 [main] INFO  com.review.MainCrud - Logger Initialized!!
+14:40:16.525 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@22eeefeb
+14:40:16.990 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+14:40:17.168 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+14:40:17.278 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+14:40:17.281 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+14:40:17.313 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+14:40:18.458 [main] INFO  com.review.MainCrud - Logger in SetInsertRecords
+14:40:19.622 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+14:40:19.622 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [select id from student where id = ?]
+14:40:19.651 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:40:19.651 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:40:19.879 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 11 bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+14:40:19.880 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'DB2'
+14:40:19.897 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'Derby'
+14:40:19.898 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'H2'
+14:40:19.899 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'HDB'
+14:40:19.901 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'HSQL'
+14:40:19.902 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'Informix'
+14:40:19.902 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'MS-SQL'
+14:40:19.903 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'MySQL'
+14:40:19.904 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'Oracle'
+14:40:19.905 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'PostgreSQL'
+14:40:19.906 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'Sybase'
+14:40:19.907 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - Looking up default SQLErrorCodes for DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@3e44f2a5]
+14:40:19.908 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:40:19.908 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:40:19.921 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - SQL error codes for 'H2' found
+14:40:19.922 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - Caching SQL error codes for DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@3e44f2a5]: database product name is 'H2'
+14:40:19.922 [main] DEBUG o.s.j.s.SQLErrorCodeSQLExceptionTranslator - Translating SQLException with SQL state '42S22', error code '42122', message [Column "studentId" not found [42122-214]]; SQL was [select id from student where id = ?] for task [PreparedStatementCallback]
+14:41:35.588 [main] INFO  com.review.MainCrud - Logger Initialized!!
+14:41:35.652 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@10a035a0
+14:41:35.907 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+14:41:35.957 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+14:41:36.070 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+14:41:36.072 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+14:41:36.123 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+14:41:38.412 [main] INFO  com.review.MainCrud - Logger in SetInsertRecords
+14:41:41.086 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+14:41:41.087 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [select * from student where id = ?]
+14:41:41.090 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:41:41.091 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:44:27.393 [main] INFO  com.review.MainCrud - Logger Initialized!!
+14:44:28.405 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@396e2f39
+14:44:29.589 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+14:44:29.742 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+14:44:29.855 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+14:44:29.857 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+14:44:29.908 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+14:44:31.674 [main] INFO  com.review.MainCrud - Logger in SetInsertRecords
+14:44:33.954 [main] INFO  com.review.MainCrud - For ID 1
+14:44:40.049 [main] ERROR com.review.MainCrud - Error at insert := 
+java.util.InputMismatchException: Incorrect format
+	at com.review.StudentDaoImplement.setInsertRecords(StudentDaoImplement.java:45)
+	at com.review.MainCrud.main(MainCrud.java:22)
+14:44:40.145 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+14:44:40.147 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into student (id, studentName,lastName) values(?, ?, ?)]
+14:44:40.162 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:44:40.163 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:44:40.591 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 11 bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+14:44:40.592 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'DB2'
+14:44:40.619 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'Derby'
+14:44:40.620 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'H2'
+14:44:40.621 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'HDB'
+14:44:40.623 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'HSQL'
+14:44:40.624 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'Informix'
+14:44:40.624 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'MS-SQL'
+14:44:40.625 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'MySQL'
+14:44:40.626 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'Oracle'
+14:44:40.627 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'PostgreSQL'
+14:44:40.627 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'Sybase'
+14:44:40.628 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - Looking up default SQLErrorCodes for DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@4d518b32]
+14:44:40.630 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:44:40.630 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:44:40.644 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - SQL error codes for 'H2' found
+14:44:40.644 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - Caching SQL error codes for DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@4d518b32]: database product name is 'H2'
+14:44:40.644 [main] DEBUG o.s.j.s.SQLErrorCodeSQLExceptionTranslator - Translating SQLException with SQL state '23502', error code '23502', message [NULL not allowed for column "LASTNAME"; SQL statement:
+insert into student (id, studentName,lastName) values(?, ?, ?) [23502-214]]; SQL was [insert into student (id, studentName,lastName) values(?, ?, ?)] for task [PreparedStatementCallback]
+14:46:52.455 [main] INFO  com.review.MainCrud - Logger Initialized!!
+14:46:52.624 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3578436e
+14:46:53.048 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+14:46:53.231 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+14:46:53.384 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+14:46:53.407 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+14:46:53.551 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+14:46:55.822 [main] INFO  com.review.MainCrud - Logger in SetInsertRecords
+14:46:57.254 [main] INFO  com.review.MainCrud - For ID 1
+14:47:00.914 [main] ERROR com.review.MainCrud - Error at insert := 
+java.lang.NumberFormatException: Incorrect format
+	at com.review.StudentDaoImplement.setInsertRecords(StudentDaoImplement.java:45)
+	at com.review.MainCrud.main(MainCrud.java:22)
+14:47:01.039 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+14:47:01.040 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into student (id, studentName,lastName) values(?, ?, ?)]
+14:47:01.068 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:47:01.068 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:47:01.296 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 11 bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+14:47:01.297 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'DB2'
+14:47:01.307 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'Derby'
+14:47:01.310 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'H2'
+14:47:01.311 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'HDB'
+14:47:01.313 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'HSQL'
+14:47:01.314 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'Informix'
+14:47:01.314 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'MS-SQL'
+14:47:01.315 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'MySQL'
+14:47:01.316 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'Oracle'
+14:47:01.317 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'PostgreSQL'
+14:47:01.318 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'Sybase'
+14:47:01.319 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - Looking up default SQLErrorCodes for DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@7b7fdc8]
+14:47:01.320 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:47:01.320 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:47:01.326 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - SQL error codes for 'H2' found
+14:47:01.327 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - Caching SQL error codes for DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@7b7fdc8]: database product name is 'H2'
+14:47:01.327 [main] DEBUG o.s.j.s.SQLErrorCodeSQLExceptionTranslator - Translating SQLException with SQL state '23502', error code '23502', message [NULL not allowed for column "LASTNAME"; SQL statement:
+insert into student (id, studentName,lastName) values(?, ?, ?) [23502-214]]; SQL was [insert into student (id, studentName,lastName) values(?, ?, ?)] for task [PreparedStatementCallback]
+14:54:14.855 [main] INFO  com.review.MainCrud - Logger Initialized!!
+14:54:15.125 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3578436e
+14:54:15.499 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+14:54:15.667 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+14:54:15.806 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+14:54:15.819 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+14:54:16.073 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+14:54:17.785 [main] INFO  com.review.MainCrud - Logger in SetInsertRecords
+14:54:18.609 [main] INFO  com.review.MainCrud - For ID 1
+14:54:35.403 [main] ERROR com.review.MainCrud - Error at insert := 
+java.util.InputMismatchException: null
+	at java.base/java.util.Scanner.throwFor(Scanner.java:943)
+	at java.base/java.util.Scanner.next(Scanner.java:1598)
+	at java.base/java.util.Scanner.nextFloat(Scanner.java:2501)
+	at com.review.StudentDaoImplement.setInsertRecords(StudentDaoImplement.java:79)
+	at com.review.MainCrud.main(MainCrud.java:22)
+14:54:35.420 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+14:54:35.422 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into student (id, studentName,lastName) values(?, ?, ?)]
+14:54:35.447 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:54:35.447 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:54:35.838 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 11 bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
+14:54:35.840 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'DB2'
+14:54:35.897 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'Derby'
+14:54:35.899 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'H2'
+14:54:35.900 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'HDB'
+14:54:35.903 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'HSQL'
+14:54:35.903 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'Informix'
+14:54:35.904 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'MS-SQL'
+14:54:35.905 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'MySQL'
+14:54:35.911 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'Oracle'
+14:54:35.912 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'PostgreSQL'
+14:54:35.913 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'Sybase'
+14:54:35.914 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - Looking up default SQLErrorCodes for DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@24c4ddae]
+14:54:35.915 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:54:35.915 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:54:36.018 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - SQL error codes for 'H2' found
+14:54:36.018 [main] DEBUG o.s.j.support.SQLErrorCodesFactory - Caching SQL error codes for DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@24c4ddae]: database product name is 'H2'
+14:54:36.018 [main] DEBUG o.s.j.s.SQLErrorCodeSQLExceptionTranslator - Translating SQLException with SQL state '23505', error code '23505', message [Unique index or primary key violation: "PRIMARY KEY ON PUBLIC.STUDENT(ID) ( /* key:1 */ 1, 'jhilmil', 'soni')"; SQL statement:
+insert into student (id, studentName,lastName) values(?, ?, ?) [23505-214]]; SQL was [insert into student (id, studentName,lastName) values(?, ?, ?)] for task [PreparedStatementCallback]
+14:55:06.926 [main] INFO  com.review.MainCrud - Logger Initialized!!
+14:55:07.500 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@22eeefeb
+14:55:07.758 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+14:55:07.912 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+14:55:08.019 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+14:55:08.032 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+14:55:08.086 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+14:55:22.219 [main] INFO  com.review.MainCrud - Logger in SetInsertRecords
+14:55:25.396 [main] INFO  com.review.MainCrud - For ID 33
+14:55:39.460 [main] ERROR com.review.MainCrud - Error at insert := 
+java.util.InputMismatchException: null
+	at java.base/java.util.Scanner.throwFor(Scanner.java:943)
+	at java.base/java.util.Scanner.next(Scanner.java:1598)
+	at java.base/java.util.Scanner.nextFloat(Scanner.java:2501)
+	at com.review.StudentDaoImplement.setInsertRecords(StudentDaoImplement.java:79)
+	at com.review.MainCrud.main(MainCrud.java:22)
+14:55:39.476 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+14:55:39.478 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into student (id, studentName,lastName) values(?, ?, ?)]
+14:55:39.505 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:55:39.506 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:55:39.719 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+14:55:39.719 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into studentPersonalDetails(studentId, fatherName, motherName, address,dob) values(?, ?, ?, ?, ?)]
+14:55:39.719 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:55:39.719 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:55:39.723 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+14:55:39.723 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into studentMarks(studentId, english, hindi, maths, science, social, percentage)values(?, ?, ?, ?, ?, ?, ?)]
+14:55:39.731 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:55:39.732 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:55:39.737 [main] INFO  com.review.MainCrud - Inserted ID 33 Data
+14:56:18.105 [main] INFO  com.review.MainCrud - Logger Initialized!!
+14:56:18.246 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3578436e
+14:56:18.654 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+14:56:18.827 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+14:56:19.001 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+14:56:19.033 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+14:56:19.223 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+14:56:21.974 [main] INFO  com.review.MainCrud - Logger in SetInsertRecords
+14:56:25.749 [main] INFO  com.review.MainCrud - For ID 22
+14:56:42.318 [main] ERROR com.review.MainCrud - Error at insert := 
+java.util.InputMismatchException: null
+	at java.base/java.util.Scanner.throwFor(Scanner.java:943)
+	at java.base/java.util.Scanner.next(Scanner.java:1598)
+	at java.base/java.util.Scanner.nextFloat(Scanner.java:2501)
+	at com.review.StudentDaoImplement.setInsertRecords(StudentDaoImplement.java:79)
+	at com.review.MainCrud.main(MainCrud.java:22)
+14:56:42.335 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+14:56:42.336 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into student (id, studentName,lastName) values(?, ?, ?)]
+14:56:42.364 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:56:42.364 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:56:42.619 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+14:56:42.619 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into studentPersonalDetails(studentId, fatherName, motherName, address,dob) values(?, ?, ?, ?, ?)]
+14:56:42.619 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:56:42.619 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:56:42.623 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+14:56:42.624 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into studentMarks(studentId, english, hindi, maths, science, social, percentage)values(?, ?, ?, ?, ?, ?, ?)]
+14:56:42.624 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:56:42.624 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:56:42.664 [main] INFO  com.review.MainCrud - Inserted ID 22 Data
+14:57:32.719 [main] INFO  com.review.MainCrud - Logger Initialized!!
+14:57:32.901 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@396e2f39
+14:57:33.385 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+14:57:33.583 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+14:57:33.693 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+14:57:33.694 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+14:57:33.745 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+14:57:34.639 [main] INFO  com.review.MainCrud - Logger in SetDelete
+14:57:37.399 [main] INFO  com.review.MainCrud - Data Deleted for 22 
+14:57:37.426 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+14:57:37.427 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from student where id = ?]
+14:57:37.455 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:57:37.455 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:57:37.651 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+14:57:37.651 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from studentPersonalDetails where studentId = ?]
+14:57:37.652 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:57:37.652 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:57:37.657 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+14:57:37.658 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from studentMarks where studentId = ?]
+14:57:37.658 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:57:37.658 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:57:37.664 [main] INFO  com.review.MainCrud - ID 22 Data deleted
+14:57:39.359 [main] INFO  com.review.MainCrud - Logger in SetDelete
+14:57:41.271 [main] INFO  com.review.MainCrud - Data Deleted for 33 
+14:57:41.272 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+14:57:41.272 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from student where id = ?]
+14:57:41.272 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:57:41.272 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:57:41.279 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+14:57:41.279 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from studentPersonalDetails where studentId = ?]
+14:57:41.279 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:57:41.279 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:57:41.291 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+14:57:41.291 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from studentMarks where studentId = ?]
+14:57:41.291 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+14:57:41.291 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+14:57:41.296 [main] INFO  com.review.MainCrud - ID 33 Data deleted
+14:57:52.040 [main] INFO  com.review.MainCrud - Process Successful for ID33
+15:22:01.010 [main] INFO  com.review.MainCrud - Logger Initialized!!
+15:22:01.495 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3578436e
+15:22:02.294 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+15:22:02.763 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+15:22:03.040 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+15:22:03.042 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+15:22:03.101 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+15:22:10.633 [main] INFO  com.review.MainCrud - Logger in SetInsertRecords
+15:22:12.155 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+15:22:12.156 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [select * from student where id = ?]
+15:22:12.197 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+15:22:12.197 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+15:22:12.448 [main] ERROR com.review.MainCrud - Error at insert := 
+java.lang.IllegalArgumentException: Already Exist
+	at com.review.StudentDaoImplement.setInsertRecords(StudentDaoImplement.java:116)
+	at com.review.MainCrud.main(MainCrud.java:22)
+15:26:05.957 [main] INFO  com.review.MainCrud - Logger Initialized!!
+15:26:06.234 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3578436e
+15:26:06.707 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+15:26:06.854 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+15:26:07.085 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+15:26:07.087 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+15:26:07.139 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+15:26:08.472 [main] INFO  com.review.MainCrud - Logger in SetInsertRecords
+15:26:09.174 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+15:26:09.175 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [select * from student where id = ?]
+15:26:09.203 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+15:26:09.204 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+15:26:09.424 [main] ERROR com.review.MainCrud - Error at insert := 
+java.lang.IllegalArgumentException: Already Exist
+	at com.review.StudentDaoImplement.setInsertRecords(StudentDaoImplement.java:117)
+	at com.review.MainCrud.main(MainCrud.java:22)
+15:26:27.360 [main] INFO  com.review.MainCrud - Process Successful for ID1
+15:29:26.653 [main] INFO  com.review.MainCrud - Logger Initialized!!
+15:29:26.861 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3578436e
+15:29:27.234 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+15:29:27.431 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+15:29:27.616 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+15:29:27.641 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+15:29:27.921 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+15:29:29.126 [main] INFO  com.review.MainCrud - Logger in SetInsertRecords
+15:29:29.772 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+15:29:29.772 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [select * from student where id = ?]
+15:29:29.801 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+15:29:29.801 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+15:29:30.021 [main] ERROR com.review.MainCrud - Error at insert := 
+java.lang.IllegalArgumentException: Already Exist for ID 1
+	at com.review.StudentDaoImplement.setInsertRecords(StudentDaoImplement.java:117)
+	at com.review.MainCrud.main(MainCrud.java:22)
+15:47:01.630 [main] INFO  com.review.MainCrud - Logger Initialized!!
+15:47:01.845 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3578436e
+15:47:02.326 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+15:47:02.493 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+15:47:02.675 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+15:47:02.677 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+15:47:02.734 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+15:47:20.973 [main] INFO  com.review.MainCrud - Logger init to Set Update Records!!
+15:47:20.998 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+15:47:20.998 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [select * from student where id = ?]
+15:47:21.026 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+15:47:21.027 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+15:48:13.160 [main] INFO  com.review.MainCrud - Logger Initialized!!
+15:48:13.333 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3578436e
+15:48:13.709 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+15:48:13.884 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+15:48:14.255 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+15:48:14.258 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+15:48:14.380 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+15:48:16.014 [main] INFO  com.review.MainCrud - Logger init to Set Update Records!!
+15:48:27.510 [main] INFO  com.review.MainCrud - Update in ID 1
+15:48:33.522 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+15:48:33.523 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update student set lastName = ? where id = ?]
+15:48:33.552 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+15:48:33.552 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+15:48:37.775 [main] INFO  com.review.MainCrud - Process Successful for ID1
+15:53:37.659 [main] INFO  com.review.MainCrud - Logger Initialized!!
+15:53:37.787 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@a74868d
+15:53:38.218 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+15:53:38.297 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+15:53:38.438 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+15:53:38.449 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+15:53:38.666 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+15:53:41.719 [main] INFO  com.review.MainCrud - Logger init to Set Update Records!!
+15:53:45.744 [main] INFO  com.review.MainCrud - Update in ID 2
+15:53:58.038 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+15:53:58.039 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set motherName = ? where studentId = ?]
+15:53:58.067 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+15:53:58.068 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+15:54:01.368 [main] INFO  com.review.MainCrud - Process Successful for ID2
+16:01:14.054 [main] INFO  com.review.MainCrud - Logger Initialized!!
+16:01:14.123 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@10a035a0
+16:01:14.407 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+16:01:14.468 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+16:01:14.577 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+16:01:14.582 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+16:01:14.647 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+16:01:17.541 [main] INFO  com.review.MainCrud - Logger init to Set Update Records!!
+16:01:21.373 [main] INFO  com.review.MainCrud - Update in ID 1
+16:01:21.401 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+16:01:21.402 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [select * from student where id = ?]
+16:01:21.404 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+16:01:21.404 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+16:02:27.597 [main] INFO  com.review.MainCrud - Logger Initialized!!
+16:02:27.660 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@10a035a0
+16:02:27.875 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+16:02:27.923 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+16:02:28.056 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+16:02:28.058 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+16:02:28.110 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+16:02:43.760 [main] INFO  com.review.MainCrud - Logger init to Set Update Records!!
+16:02:45.632 [main] INFO  com.review.MainCrud - Update in ID 1
+16:02:45.635 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+16:02:45.636 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [select * from student where id = ?]
+16:02:45.639 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+16:02:45.639 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+16:02:55.417 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+16:02:55.418 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set hindi = ? where studentId = ?]
+16:02:55.418 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+16:02:55.418 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+16:02:55.425 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+16:02:55.425 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [select * from studentMarks where studentId = ?]
+16:02:55.426 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+16:02:55.426 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+16:02:55.432 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+16:02:55.432 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set percentage = ? where studentId = ?]
+16:02:55.432 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+16:02:55.432 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+16:02:58.952 [main] INFO  com.review.MainCrud - Process Successful for ID1
+13:07:51.268 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@c0c2f8d
+13:07:51.456 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+13:07:51.488 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+13:07:51.552 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+13:07:51.554 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+13:07:51.593 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+13:07:51.717 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.setUp()[pri:0, instance:null] 1450404343
+13:07:51.718 [main] DEBUG org.testng.internal.Graph - [Graph] ================ SORTING
+13:07:51.721 [main] DEBUG org.testng.internal.Graph - [Graph] =============== DONE SORTING
+13:07:51.721 [main] DEBUG org.testng.internal.Graph - [Graph] ====== SORTED NODES
+13:07:51.721 [main] DEBUG org.testng.internal.Graph - [Graph] ====== END SORTED NODES
+13:07:51.723 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.tearDown()[pri:0, instance:null] -868383360
+13:07:51.723 [main] DEBUG org.testng.internal.Graph - [Graph] ================ SORTING
+13:07:51.723 [main] DEBUG org.testng.internal.Graph - [Graph] =============== DONE SORTING
+13:07:51.723 [main] DEBUG org.testng.internal.Graph - [Graph] ====== SORTED NODES
+13:07:51.723 [main] DEBUG org.testng.internal.Graph - [Graph] ====== END SORTED NODES
+13:07:51.732 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.testOnDelete()[pri:3, instance:test.TestMainCrud@4b41dd5c] 892035044
+13:07:51.732 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.testOnUpdate()[pri:2, instance:test.TestMainCrud@4b41dd5c] 1670297470
+13:07:51.733 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.testOnInsert()[pri:1, instance:test.TestMainCrud@4b41dd5c] 1796013966
+13:07:51.733 [main] DEBUG org.testng.internal.Graph - [Graph] ================ SORTING
+13:07:51.734 [main] DEBUG org.testng.internal.Graph - [Graph] =============== DONE SORTING
+13:07:51.734 [main] DEBUG org.testng.internal.Graph - [Graph] ====== SORTED NODES
+13:07:51.734 [main] DEBUG org.testng.internal.Graph - [Graph] ====== END SORTED NODES
+13:07:51.772 [main] INFO  test.TestMainCrud - Logger in test
+13:07:51.782 [main] INFO  test.TestMainCrud - Test on Insert started!!
+13:07:51.783 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+13:07:51.784 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into student (id, studentName,lastName) values(?, ?, ?)]
+13:07:51.815 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+13:07:51.815 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+13:07:52.010 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+13:07:52.011 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into studentPersonalDetails(studentId, fatherName, motherName, address,dob) values(?, ?, ?, ?, ?)]
+13:07:52.011 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+13:07:52.011 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+13:07:52.017 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+13:07:52.017 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into studentMarks(studentId, english, hindi, maths, science, social, percentage)values(?, ?, ?, ?, ?, ?, ?)]
+13:07:52.017 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+13:07:52.017 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+13:07:52.023 [main] INFO  test.TestMainCrud - Inserted ID 4 Data
+13:07:52.024 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+13:07:52.025 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [ select student.id, student.studentName, student.lastName,  studentPersonalDetails.fatherName, studentPersonalDetails.motherName, studentPersonalDetails.address, studentPersonalDetails.dob, studentMarks.english, studentMarks.hindi, studentMarks.maths, studentMarks.science, studentMarks.social, studentMarks.percentage  from student join studentMarks on student.id = studentMarks.studentId join studentPersonalDetails on studentPersonalDetails.studentId = student.id where student.id = ? ]
+13:07:52.025 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+13:07:52.025 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+13:07:52.120 [main] INFO  test.TestMainCrud - Data of ID 4 
+13:07:52.120 [main] INFO  test.TestMainCrud - Data Inserted:= Student{studentId=4, studentName='Noumi', studentLastName='Bhura', fatherName='Mahesh', motherName='Durga', address='Leh', dob='1999-10-18', english=66.0, hindi=77.0, maths=98.0, science=89.0, social=89.0, percentage=83.8}
+
+13:07:52.148 [main] INFO  test.TestMainCrud - Data of ID 4 
+13:07:52.148 [main] INFO  test.TestMainCrud - Data Fetched:= Student{studentId=4, studentName='Noumi', studentLastName='Bhura', fatherName='Mahesh', motherName='Durga', address='Leh', dob='1999-10-18', english=66.0, hindi=77.0, maths=98.0, science=89.0, social=89.0, percentage=83.8}
+
+13:07:52.154 [main] INFO  test.TestMainCrud - Test on Update started!!
+13:07:52.155 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+13:07:52.155 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update student set studentName = ? where id = ?]
+13:07:52.155 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+13:07:52.155 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+13:07:52.167 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+13:07:52.167 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update student set lastName = ? where id = ?]
+13:07:52.167 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+13:07:52.167 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+13:07:52.174 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+13:07:52.174 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set fatherName = ? where studentId = ?]
+13:07:52.174 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+13:07:52.174 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+13:07:52.180 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+13:07:52.180 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set motherName = ? where studentId = ?]
+13:07:52.180 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+13:07:52.180 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+13:07:52.187 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+13:07:52.187 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set address = ? where studentId = ?]
+13:07:52.187 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+13:07:52.187 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+13:07:52.194 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+13:07:52.194 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set dob = ? where studentId = ?]
+13:07:52.194 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+13:07:52.194 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+13:07:52.216 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+13:07:52.217 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set english = ? where studentId = ?]
+13:07:52.217 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+13:07:52.217 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+13:07:52.226 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+13:07:52.226 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set hindi = ? where studentId = ?]
+13:07:52.226 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+13:07:52.226 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+13:07:52.235 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+13:07:52.235 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set maths = ? where studentId = ?]
+13:07:52.235 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+13:07:52.236 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+13:07:52.246 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+13:07:52.246 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set science = ? where studentId = ?]
+13:07:52.246 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+13:07:52.247 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+13:07:52.255 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+13:07:52.256 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set social = ? where studentId = ?]
+13:07:52.256 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+13:07:52.256 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+13:07:52.262 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+13:07:52.262 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [select * from studentMarks where studentId = ?]
+13:07:52.262 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+13:07:52.262 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+13:07:52.268 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+13:07:52.268 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set percentage = ? where studentId = ?]
+13:07:52.268 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+13:07:52.268 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+13:07:52.275 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+13:07:52.275 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [ select student.id, student.studentName, student.lastName,  studentPersonalDetails.fatherName, studentPersonalDetails.motherName, studentPersonalDetails.address, studentPersonalDetails.dob, studentMarks.english, studentMarks.hindi, studentMarks.maths, studentMarks.science, studentMarks.social, studentMarks.percentage  from student join studentMarks on student.id = studentMarks.studentId join studentPersonalDetails on studentPersonalDetails.studentId = student.id where student.id = ? ]
+13:07:52.276 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+13:07:52.276 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+13:07:52.283 [main] INFO  test.TestMainCrud - Data of ID 4 
+13:07:52.283 [main] INFO  test.TestMainCrud - Data updated:= Student{studentId=4, studentName='GIGI', studentLastName='Soni', fatherName='Deepak', motherName='Jasmine', address='Banglore', dob='1999-09-22', english=99.0, hindi=98.0, maths=99.0, science=99.0, social=99.0, percentage=98.8}
+
+13:07:52.283 [main] INFO  test.TestMainCrud - Data of ID 4 
+13:07:52.284 [main] INFO  test.TestMainCrud - Data fetched:= Student{studentId=4, studentName='GIGI', studentLastName='Soni', fatherName='Deepak', motherName='Jasmine', address='Banglore', dob='1999-09-22', english=99.0, hindi=98.0, maths=99.0, science=99.0, social=99.0, percentage=98.8}
+
+13:07:52.286 [main] INFO  test.TestMainCrud - Test on Delete started!!
+13:07:52.286 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+13:07:52.286 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from student where id = ?]
+13:07:52.286 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+13:07:52.286 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+13:07:52.292 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+13:07:52.292 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from studentPersonalDetails where studentId = ?]
+13:07:52.292 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+13:07:52.292 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+13:07:52.298 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+13:07:52.298 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from studentMarks where studentId = ?]
+13:07:52.299 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+13:07:52.299 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+13:07:52.305 [main] INFO  test.TestMainCrud - ID 4 Data deleted
+13:07:52.308 [main] INFO  test.TestMainCrud - Logger Exit in TEST
+13:07:52.435 [main] ERROR org.testng.reporters.jq.Main - /Users/ishasethia/IdeaProjects/ProjectReviewFromSpring/target/surefire-reports/jquery-3.6.0.min.js
+java.nio.file.FileAlreadyExistsException: /Users/ishasethia/IdeaProjects/ProjectReviewFromSpring/target/surefire-reports/jquery-3.6.0.min.js
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:94)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:218)
+	at java.base/java.nio.file.spi.FileSystemProvider.newOutputStream(FileSystemProvider.java:484)
+	at java.base/java.nio.file.Files.newOutputStream(Files.java:228)
+	at java.base/java.nio.file.Files.copy(Files.java:3161)
+	at org.testng.reporters.jq.Main.generateReport(Main.java:95)
+	at org.testng.TestNG.generateReports(TestNG.java:1134)
+	at org.testng.TestNG.run(TestNG.java:1072)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:110)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:106)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+09:49:00.486 [main] DEBUG o.s.c.s.ClassPathXmlApplicationContext - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@66d18979
+09:49:01.426 [main] DEBUG o.s.b.f.xml.XmlBeanDefinitionReader - Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
+09:49:01.663 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'ds'
+09:49:01.806 [main] DEBUG o.s.j.d.DriverManagerDataSource - Loaded JDBC driver: org.h2.Driver
+09:49:01.808 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'jdbcTemplate'
+09:49:01.863 [main] DEBUG o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'studentDao'
+09:49:02.123 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.setUp()[pri:0, instance:null] 1450404343
+09:49:02.131 [main] DEBUG org.testng.internal.Graph - [Graph] ================ SORTING
+09:49:02.155 [main] DEBUG org.testng.internal.Graph - [Graph] =============== DONE SORTING
+09:49:02.155 [main] DEBUG org.testng.internal.Graph - [Graph] ====== SORTED NODES
+09:49:02.155 [main] DEBUG org.testng.internal.Graph - [Graph] ====== END SORTED NODES
+09:49:02.156 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.tearDown()[pri:0, instance:null] -868383360
+09:49:02.156 [main] DEBUG org.testng.internal.Graph - [Graph] ================ SORTING
+09:49:02.156 [main] DEBUG org.testng.internal.Graph - [Graph] =============== DONE SORTING
+09:49:02.157 [main] DEBUG org.testng.internal.Graph - [Graph] ====== SORTED NODES
+09:49:02.157 [main] DEBUG org.testng.internal.Graph - [Graph] ====== END SORTED NODES
+09:49:02.177 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.testOnDelete()[pri:3, instance:test.TestMainCrud@1e461e41] 137339081
+09:49:02.177 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.testOnUpdate()[pri:2, instance:test.TestMainCrud@1e461e41] 915601507
+09:49:02.177 [main] DEBUG org.testng.internal.Graph - [Graph] ADDING NODE TestMainCrud.testOnInsert()[pri:1, instance:test.TestMainCrud@1e461e41] 1041318003
+09:49:02.178 [main] DEBUG org.testng.internal.Graph - [Graph] ================ SORTING
+09:49:02.178 [main] DEBUG org.testng.internal.Graph - [Graph] =============== DONE SORTING
+09:49:02.179 [main] DEBUG org.testng.internal.Graph - [Graph] ====== SORTED NODES
+09:49:02.179 [main] DEBUG org.testng.internal.Graph - [Graph] ====== END SORTED NODES
+09:49:02.224 [main] INFO  test.TestMainCrud - Logger in test
+09:49:02.236 [main] INFO  test.TestMainCrud - Test on Insert started!!
+09:49:02.260 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+09:49:02.262 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into student (id, studentName,lastName) values(?, ?, ?)]
+09:49:02.311 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+09:49:02.311 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+09:49:02.644 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+09:49:02.644 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into studentPersonalDetails(studentId, fatherName, motherName, address,dob) values(?, ?, ?, ?, ?)]
+09:49:02.644 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+09:49:02.644 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+09:49:02.650 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+09:49:02.650 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [insert into studentMarks(studentId, english, hindi, maths, science, social, percentage)values(?, ?, ?, ?, ?, ?, ?)]
+09:49:02.650 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+09:49:02.650 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+09:49:02.656 [main] INFO  test.TestMainCrud - Inserted ID 4 Data
+09:49:02.664 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+09:49:02.664 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [ select student.id, student.studentName, student.lastName,  studentPersonalDetails.fatherName, studentPersonalDetails.motherName, studentPersonalDetails.address, studentPersonalDetails.dob, studentMarks.english, studentMarks.hindi, studentMarks.maths, studentMarks.science, studentMarks.social, studentMarks.percentage  from student join studentMarks on student.id = studentMarks.studentId join studentPersonalDetails on studentPersonalDetails.studentId = student.id where student.id = ? ]
+09:49:02.664 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+09:49:02.664 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+09:49:02.705 [main] INFO  test.TestMainCrud - Data of ID 4 
+09:49:02.705 [main] INFO  test.TestMainCrud - Data Inserted:= Student{studentId=4, studentName='Noumi', studentLastName='Bhura', fatherName='Mahesh', motherName='Durga', address='Leh', dob='1999-10-18', english=66.0, hindi=77.0, maths=98.0, science=89.0, social=89.0, percentage=83.8}
+
+09:49:02.737 [main] INFO  test.TestMainCrud - Data of ID 4 
+09:49:02.737 [main] INFO  test.TestMainCrud - Data Fetched:= Student{studentId=4, studentName='Noumi', studentLastName='Bhura', fatherName='Mahesh', motherName='Durga', address='Leh', dob='1999-10-18', english=66.0, hindi=77.0, maths=98.0, science=89.0, social=89.0, percentage=83.8}
+
+09:49:02.744 [main] INFO  test.TestMainCrud - Test on Update started!!
+09:49:02.744 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+09:49:02.744 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update student set studentName = ? where id = ?]
+09:49:02.744 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+09:49:02.744 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+09:49:02.755 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+09:49:02.755 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update student set lastName = ? where id = ?]
+09:49:02.755 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+09:49:02.755 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+09:49:02.762 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+09:49:02.763 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set fatherName = ? where studentId = ?]
+09:49:02.763 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+09:49:02.763 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+09:49:02.768 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+09:49:02.768 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set motherName = ? where studentId = ?]
+09:49:02.768 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+09:49:02.768 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+09:49:02.774 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+09:49:02.774 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set address = ? where studentId = ?]
+09:49:02.774 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+09:49:02.774 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+09:49:02.780 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+09:49:02.780 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentPersonalDetails set dob = ? where studentId = ?]
+09:49:02.780 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+09:49:02.780 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+09:49:02.787 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+09:49:02.788 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set english = ? where studentId = ?]
+09:49:02.788 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+09:49:02.788 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+09:49:02.793 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+09:49:02.794 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set hindi = ? where studentId = ?]
+09:49:02.794 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+09:49:02.794 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+09:49:02.799 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+09:49:02.799 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set maths = ? where studentId = ?]
+09:49:02.799 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+09:49:02.799 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+09:49:02.804 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+09:49:02.805 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set science = ? where studentId = ?]
+09:49:02.805 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+09:49:02.805 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+09:49:02.811 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+09:49:02.811 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set social = ? where studentId = ?]
+09:49:02.811 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+09:49:02.811 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+09:49:02.818 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+09:49:02.818 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [select * from studentMarks where studentId = ?]
+09:49:02.818 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+09:49:02.818 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+09:49:02.825 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+09:49:02.825 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [update studentMarks set percentage = ? where studentId = ?]
+09:49:02.825 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+09:49:02.825 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+09:49:02.831 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL query
+09:49:02.831 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [ select student.id, student.studentName, student.lastName,  studentPersonalDetails.fatherName, studentPersonalDetails.motherName, studentPersonalDetails.address, studentPersonalDetails.dob, studentMarks.english, studentMarks.hindi, studentMarks.maths, studentMarks.science, studentMarks.social, studentMarks.percentage  from student join studentMarks on student.id = studentMarks.studentId join studentPersonalDetails on studentPersonalDetails.studentId = student.id where student.id = ? ]
+09:49:02.831 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+09:49:02.831 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+09:49:02.837 [main] INFO  test.TestMainCrud - Data of ID 4 
+09:49:02.837 [main] INFO  test.TestMainCrud - Data updated:= Student{studentId=4, studentName='GIGI', studentLastName='Soni', fatherName='Deepak', motherName='Jasmine', address='Banglore', dob='1999-09-22', english=99.0, hindi=98.0, maths=99.0, science=99.0, social=99.0, percentage=98.8}
+
+09:49:02.838 [main] INFO  test.TestMainCrud - Data of ID 4 
+09:49:02.838 [main] INFO  test.TestMainCrud - Data fetched:= Student{studentId=4, studentName='GIGI', studentLastName='Soni', fatherName='Deepak', motherName='Jasmine', address='Banglore', dob='1999-09-22', english=99.0, hindi=98.0, maths=99.0, science=99.0, social=99.0, percentage=98.8}
+
+09:49:02.840 [main] INFO  test.TestMainCrud - Test on Delete started!!
+09:49:02.840 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+09:49:02.840 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from student where id = ?]
+09:49:02.840 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+09:49:02.840 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+09:49:02.848 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+09:49:02.848 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from studentPersonalDetails where studentId = ?]
+09:49:02.848 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+09:49:02.848 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+09:49:02.858 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL update
+09:49:02.858 [main] DEBUG o.s.jdbc.core.JdbcTemplate - Executing prepared SQL statement [delete from studentMarks where studentId = ?]
+09:49:02.858 [main] DEBUG o.s.jdbc.datasource.DataSourceUtils - Fetching JDBC Connection from DataSource
+09:49:02.858 [main] DEBUG o.s.j.d.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+09:49:02.864 [main] INFO  test.TestMainCrud - ID 4 Data deleted
+09:49:02.867 [main] INFO  test.TestMainCrud - Logger Exit in TEST
+09:49:03.020 [main] ERROR org.testng.reporters.jq.Main - /Users/ishasethia/IdeaProjects/ProjectReviewFromSpring/target/surefire-reports/jquery-3.6.0.min.js
+java.nio.file.FileAlreadyExistsException: /Users/ishasethia/IdeaProjects/ProjectReviewFromSpring/target/surefire-reports/jquery-3.6.0.min.js
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:94)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:218)
+	at java.base/java.nio.file.spi.FileSystemProvider.newOutputStream(FileSystemProvider.java:484)
+	at java.base/java.nio.file.Files.newOutputStream(Files.java:228)
+	at java.base/java.nio.file.Files.copy(Files.java:3161)
+	at org.testng.reporters.jq.Main.generateReport(Main.java:95)
+	at org.testng.TestNG.generateReports(TestNG.java:1134)
+	at org.testng.TestNG.run(TestNG.java:1072)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:110)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:106)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)

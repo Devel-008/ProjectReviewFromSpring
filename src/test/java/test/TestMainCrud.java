@@ -6,6 +6,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -16,7 +18,10 @@ public class TestMainCrud {
     ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
     StudentDao dao = context.getBean("studentDao",StudentDao.class);
     SoftAssert softAssert = new SoftAssert();
-
+    @BeforeClass
+    public void setUp(){
+        logger.info("Logger in test");
+    }
     @Test(priority = 1)
     public void testOnInsert() {
         logger.info("Test on Insert started!!");
@@ -36,7 +41,6 @@ public class TestMainCrud {
         student.setPercentage((total * 100) / 500);
 
         dao.insertRecords(student,logger);
-
         Student student1 = dao.fetchRecords(student,logger);
 
         softAssert.assertEquals(student1.getStudentName(), student.getStudentName(), "Test on Insert-Name failed");
@@ -52,12 +56,16 @@ public class TestMainCrud {
         softAssert.assertEquals(student1.getSocial(),student.getSocial(), "Test on Insert-Social failed");
         softAssert.assertEquals(student1.getPercentage(), student.getPercentage(),"Test on Insert Percentage failed");
         softAssert.assertAll();
+        logger.info("Data of ID {} ",student.getStudentId());
+        logger.info("Data Inserted:= {}", student);
+        logger.info("Data of ID {} ",student1.getStudentId());
+        logger.info("Data Fetched:= {}", student1);
     }
 
     @Test(priority = 2)
     public void testOnUpdate() {
         logger.info("Test on Update started!!");
-        student.setStudentId(2);
+        student.setStudentId(4);
         student.setStudentName("GIGI");
         student.setStudentLastName("Soni");
         student.setFatherName("Deepak");
@@ -88,6 +96,10 @@ public class TestMainCrud {
         softAssert.assertEquals(student1.getSocial(),student.getSocial(), "Test on Update-Social failed");
         softAssert.assertEquals(student1.getPercentage(), student.getPercentage(),"Test on Update Percentage failed");
         softAssert.assertAll();
+        logger.info("Data of ID {} ",student.getStudentId());
+        logger.info("Data updated:= {}", student);
+        logger.info("Data of ID {} ",student1.getStudentId());
+        logger.info("Data fetched:= {}", student1);
     }
     @Test(priority = 3)
     public void testOnDelete() {
@@ -95,7 +107,10 @@ public class TestMainCrud {
         student.setStudentId(4);
         boolean result = dao.deleteRecords(student,logger);
         softAssert.assertTrue(result, "Delete Test Failed");
-        System.out.println(result);
         softAssert.assertAll();
+    }
+    @AfterClass
+    public void tearDown(){
+        logger.info("Logger Exit in TEST");
     }
 }

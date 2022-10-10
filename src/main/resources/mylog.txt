@@ -1,39 +1,148 @@
-Logger Initialized!!
-Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@396e2f39
+Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@66d18979
 Loaded 3 bean definitions from class path resource [ApplicationContext.xml]
 Creating shared instance of singleton bean 'ds'
 Loaded JDBC driver: org.h2.Driver
 Creating shared instance of singleton bean 'jdbcTemplate'
 Creating shared instance of singleton bean 'studentDao'
-Logger in SetInsertRecords
-Error at insert := 
-java.util.InputMismatchException: null
-	at java.base/java.util.Scanner.throwFor(Scanner.java:943)
-	at java.base/java.util.Scanner.next(Scanner.java:1598)
-	at java.base/java.util.Scanner.nextInt(Scanner.java:2263)
-	at java.base/java.util.Scanner.nextInt(Scanner.java:2217)
-	at com.review.StudentDaoImplement.setInsertRecords(StudentDaoImplement.java:37)
-	at com.review.MainCrud.main(MainCrud.java:22)
+[Graph] ADDING NODE TestMainCrud.setUp()[pri:0, instance:null] 1450404343
+[Graph] ================ SORTING
+[Graph] =============== DONE SORTING
+[Graph] ====== SORTED NODES
+[Graph] ====== END SORTED NODES
+[Graph] ADDING NODE TestMainCrud.tearDown()[pri:0, instance:null] -868383360
+[Graph] ================ SORTING
+[Graph] =============== DONE SORTING
+[Graph] ====== SORTED NODES
+[Graph] ====== END SORTED NODES
+[Graph] ADDING NODE TestMainCrud.testOnDelete()[pri:3, instance:test.TestMainCrud@1e461e41] 137339081
+[Graph] ADDING NODE TestMainCrud.testOnUpdate()[pri:2, instance:test.TestMainCrud@1e461e41] 915601507
+[Graph] ADDING NODE TestMainCrud.testOnInsert()[pri:1, instance:test.TestMainCrud@1e461e41] 1041318003
+[Graph] ================ SORTING
+[Graph] =============== DONE SORTING
+[Graph] ====== SORTED NODES
+[Graph] ====== END SORTED NODES
+Logger in test
+Test on Insert started!!
 Executing prepared SQL update
 Executing prepared SQL statement [insert into student (id, studentName,lastName) values(?, ?, ?)]
 Fetching JDBC Connection from DataSource
 Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
-Loaded 11 bean definitions from class path resource [org/springframework/jdbc/support/sql-error-codes.xml]
-Creating shared instance of singleton bean 'DB2'
-Creating shared instance of singleton bean 'Derby'
-Creating shared instance of singleton bean 'H2'
-Creating shared instance of singleton bean 'HDB'
-Creating shared instance of singleton bean 'HSQL'
-Creating shared instance of singleton bean 'Informix'
-Creating shared instance of singleton bean 'MS-SQL'
-Creating shared instance of singleton bean 'MySQL'
-Creating shared instance of singleton bean 'Oracle'
-Creating shared instance of singleton bean 'PostgreSQL'
-Creating shared instance of singleton bean 'Sybase'
-Looking up default SQLErrorCodes for DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@52815fa3]
+Executing prepared SQL update
+Executing prepared SQL statement [insert into studentPersonalDetails(studentId, fatherName, motherName, address,dob) values(?, ?, ?, ?, ?)]
 Fetching JDBC Connection from DataSource
 Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
-SQL error codes for 'H2' found
-Caching SQL error codes for DataSource [org.springframework.jdbc.datasource.DriverManagerDataSource@52815fa3]: database product name is 'H2'
-Translating SQLException with SQL state '23502', error code '23502', message [NULL not allowed for column "STUDENTNAME"; SQL statement:
-insert into student (id, studentName,lastName) values(?, ?, ?) [23502-214]]; SQL was [insert into student (id, studentName,lastName) values(?, ?, ?)] for task [PreparedStatementCallback]
+Executing prepared SQL update
+Executing prepared SQL statement [insert into studentMarks(studentId, english, hindi, maths, science, social, percentage)values(?, ?, ?, ?, ?, ?, ?)]
+Fetching JDBC Connection from DataSource
+Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+Inserted ID 4 Data
+Executing prepared SQL query
+Executing prepared SQL statement [ select student.id, student.studentName, student.lastName,  studentPersonalDetails.fatherName, studentPersonalDetails.motherName, studentPersonalDetails.address, studentPersonalDetails.dob, studentMarks.english, studentMarks.hindi, studentMarks.maths, studentMarks.science, studentMarks.social, studentMarks.percentage  from student join studentMarks on student.id = studentMarks.studentId join studentPersonalDetails on studentPersonalDetails.studentId = student.id where student.id = ? ]
+Fetching JDBC Connection from DataSource
+Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+Data of ID 4 
+Data Inserted:= Student{studentId=4, studentName='Noumi', studentLastName='Bhura', fatherName='Mahesh', motherName='Durga', address='Leh', dob='1999-10-18', english=66.0, hindi=77.0, maths=98.0, science=89.0, social=89.0, percentage=83.8}
+
+Data of ID 4 
+Data Fetched:= Student{studentId=4, studentName='Noumi', studentLastName='Bhura', fatherName='Mahesh', motherName='Durga', address='Leh', dob='1999-10-18', english=66.0, hindi=77.0, maths=98.0, science=89.0, social=89.0, percentage=83.8}
+
+Test on Update started!!
+Executing prepared SQL update
+Executing prepared SQL statement [update student set studentName = ? where id = ?]
+Fetching JDBC Connection from DataSource
+Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+Executing prepared SQL update
+Executing prepared SQL statement [update student set lastName = ? where id = ?]
+Fetching JDBC Connection from DataSource
+Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+Executing prepared SQL update
+Executing prepared SQL statement [update studentPersonalDetails set fatherName = ? where studentId = ?]
+Fetching JDBC Connection from DataSource
+Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+Executing prepared SQL update
+Executing prepared SQL statement [update studentPersonalDetails set motherName = ? where studentId = ?]
+Fetching JDBC Connection from DataSource
+Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+Executing prepared SQL update
+Executing prepared SQL statement [update studentPersonalDetails set address = ? where studentId = ?]
+Fetching JDBC Connection from DataSource
+Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+Executing prepared SQL update
+Executing prepared SQL statement [update studentPersonalDetails set dob = ? where studentId = ?]
+Fetching JDBC Connection from DataSource
+Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+Executing prepared SQL update
+Executing prepared SQL statement [update studentMarks set english = ? where studentId = ?]
+Fetching JDBC Connection from DataSource
+Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+Executing prepared SQL update
+Executing prepared SQL statement [update studentMarks set hindi = ? where studentId = ?]
+Fetching JDBC Connection from DataSource
+Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+Executing prepared SQL update
+Executing prepared SQL statement [update studentMarks set maths = ? where studentId = ?]
+Fetching JDBC Connection from DataSource
+Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+Executing prepared SQL update
+Executing prepared SQL statement [update studentMarks set science = ? where studentId = ?]
+Fetching JDBC Connection from DataSource
+Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+Executing prepared SQL update
+Executing prepared SQL statement [update studentMarks set social = ? where studentId = ?]
+Fetching JDBC Connection from DataSource
+Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+Executing prepared SQL query
+Executing prepared SQL statement [select * from studentMarks where studentId = ?]
+Fetching JDBC Connection from DataSource
+Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+Executing prepared SQL update
+Executing prepared SQL statement [update studentMarks set percentage = ? where studentId = ?]
+Fetching JDBC Connection from DataSource
+Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+Executing prepared SQL query
+Executing prepared SQL statement [ select student.id, student.studentName, student.lastName,  studentPersonalDetails.fatherName, studentPersonalDetails.motherName, studentPersonalDetails.address, studentPersonalDetails.dob, studentMarks.english, studentMarks.hindi, studentMarks.maths, studentMarks.science, studentMarks.social, studentMarks.percentage  from student join studentMarks on student.id = studentMarks.studentId join studentPersonalDetails on studentPersonalDetails.studentId = student.id where student.id = ? ]
+Fetching JDBC Connection from DataSource
+Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+Data of ID 4 
+Data updated:= Student{studentId=4, studentName='GIGI', studentLastName='Soni', fatherName='Deepak', motherName='Jasmine', address='Banglore', dob='1999-09-22', english=99.0, hindi=98.0, maths=99.0, science=99.0, social=99.0, percentage=98.8}
+
+Data of ID 4 
+Data fetched:= Student{studentId=4, studentName='GIGI', studentLastName='Soni', fatherName='Deepak', motherName='Jasmine', address='Banglore', dob='1999-09-22', english=99.0, hindi=98.0, maths=99.0, science=99.0, social=99.0, percentage=98.8}
+
+Test on Delete started!!
+Executing prepared SQL update
+Executing prepared SQL statement [delete from student where id = ?]
+Fetching JDBC Connection from DataSource
+Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+Executing prepared SQL update
+Executing prepared SQL statement [delete from studentPersonalDetails where studentId = ?]
+Fetching JDBC Connection from DataSource
+Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+Executing prepared SQL update
+Executing prepared SQL statement [delete from studentMarks where studentId = ?]
+Fetching JDBC Connection from DataSource
+Creating new JDBC DriverManager Connection to [jdbc:h2:tcp://localhost/~/test]
+ID 4 Data deleted
+Logger Exit in TEST
+/Users/ishasethia/IdeaProjects/ProjectReviewFromSpring/target/surefire-reports/jquery-3.6.0.min.js
+java.nio.file.FileAlreadyExistsException: /Users/ishasethia/IdeaProjects/ProjectReviewFromSpring/target/surefire-reports/jquery-3.6.0.min.js
+	at java.base/sun.nio.fs.UnixException.translateToIOException(UnixException.java:94)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:106)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:111)
+	at java.base/sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:218)
+	at java.base/java.nio.file.spi.FileSystemProvider.newOutputStream(FileSystemProvider.java:484)
+	at java.base/java.nio.file.Files.newOutputStream(Files.java:228)
+	at java.base/java.nio.file.Files.copy(Files.java:3161)
+	at org.testng.reporters.jq.Main.generateReport(Main.java:95)
+	at org.testng.TestNG.generateReports(TestNG.java:1134)
+	at org.testng.TestNG.run(TestNG.java:1072)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:77)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:110)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:106)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:577)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)

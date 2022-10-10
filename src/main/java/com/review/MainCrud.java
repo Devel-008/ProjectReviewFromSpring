@@ -31,7 +31,7 @@ public class MainCrud {
                     int n = sc.nextInt();
                     if (n == 0) {
                         System.out.println("Process Successful!!");
-                        logger.info("Process Successful for ID{}",student.getStudentId());
+                        logger.info("Process Successful for ID {}",student.getStudentId());
                         return;
                     }
                 }
