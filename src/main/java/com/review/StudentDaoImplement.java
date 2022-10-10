@@ -454,7 +454,6 @@ public class StudentDaoImplement implements StudentDao {
         }
     }
 
-    @Transactional(isolation = Isolation.READ_COMMITTED)
     @Override
     public boolean updateDob(Student student, Logger logger) {
         query = "update studentPersonalDetails set dob = ? where studentId = ?";
