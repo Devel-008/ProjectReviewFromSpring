@@ -7,8 +7,7 @@ import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Transactional;
+
 
 import java.io.FileReader;
 import java.io.IOException;
