@@ -125,7 +125,6 @@ public class StudentDaoImplement implements StudentDao {
 
     @Override
     public boolean insertRecords(Student student, Logger logger) {
-
         String insertStudent = "insert into student (id, studentName,lastName) values(?, ?, ?)";
         String insertStudentMarks = "insert into studentMarks(studentId, english, hindi, maths, science, social, percentage)" +
                 "values(?, ?, ?, ?, ?, ?, ?)";
